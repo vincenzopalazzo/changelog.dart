@@ -1,0 +1,18 @@
+name: changelog.dar test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - name: Install dependencies
+        run: make dep
+      - name: Source code test
+        run: make ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.TEST_TOKEN }}
