@@ -17,7 +17,7 @@ scripts:
   test:
     description: Run tests in a specific package.
     # TODO(Salakar) 'dart pub get' is necessary for the 'melos' package as we're using it on itself
-    run: melos exec --concurrency=1 -- "dart pub get && dart pub run test --reporter expanded"
+    run: melos exec --concurrency=1 -- "dart pub get && dart pub run test"
     select-package:
       dir-exists:
         - "test/"
