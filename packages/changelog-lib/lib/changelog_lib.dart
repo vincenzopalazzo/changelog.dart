@@ -1,8 +1,18 @@
-/// Support for doing something awesome.
+/// changelog-lib is a package that implement the basic
+/// blocks to create a changelog from a list of metadata
+/// pattern contained inside the commit body,
 ///
-/// More dartdocs go here.
+/// The usage of the commit body enable the possibility
+/// to leave the head of the commit free for the repository
+/// guide line and the communication between open source
+/// developers, and use the commit body to insert metadata
+/// useful for the changelog generation
+///
+/// author: https://github.com/vincenzopalazzo
 library changelog_lib;
 
 export 'src/changelog_lib_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/model/changelog_model.dart';
+export 'src/model/commit/commit_author.dart';
+export 'src/model/commit/commit_content.dart';
+export 'src/model/commit/commit_info.dart';

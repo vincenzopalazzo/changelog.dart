@@ -1,12 +1,11 @@
 CC=dart pub global run melos
-CC_TEST=spec
+CC_TEST=PATH="$(PATH)":"$(HOME)/.pub-cache/bin" spec
 
 default: dep check
 
 dep:
 	dart pub global activate melos;
 	dart pub global activate spec_cli;
-	export PATH="$PATH":"$HOME/.pub-cache/bin";
 	$(CC) bootstrap
 
 check:
