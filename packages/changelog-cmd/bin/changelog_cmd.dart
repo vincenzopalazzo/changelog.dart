@@ -1,3 +1,103 @@
-void main(List<String> arguments) {
-  print('Hello world!');
+/// changelog_cmd is the entry point of the
+/// command line application to generate
+/// the changelog from git command line or
+/// Github graphql API.
+///
+/// author: https://github.com/vincenzopalazzo
+
+import 'dart:core';
+import 'dart:io';
+
+import 'package:args/args.dart';
+import 'package:changelog_cmd/fetcher/git_cmd_fectcher.dart';
+import 'package:changelog_cmd/fetcher/github_fetcher.dart';
+import 'package:changelog_cmd/printer/printer_mediator.dart';
+import 'package:changelog_lib/changelog_lib.dart';
+
+const String packageName = "packageName";
+const String versionName = "versionName";
+const String changelogFormat = "changelogFormat";
+const String silentKey = "silent";
+const String githubAPI = "githubAPI";
+const String pointToStart = "pointToStart";
+const String pointToEnd = "pointToEnd";
+
+/// Configure the command line arguments with the application keys
+ArgResults configureCommandLine(List<String> args) {
+  var parser = ArgParser();
+  parser.addOption(packageName,
+      abbr: "p", help: "The package name where generate the changelog file.");
+  parser.addOption(versionName, abbr: "v", help: "The version of the package.");
+  parser.addOption(changelogFormat,
+      abbr: "f",
+      help: "Specify the format of the changelog, the default value is md",
+      defaultsTo: "md");
+  parser.addOption(githubAPI,
+      abbr: "g",
+      help:
+          "Use the Github API with with the following repository name to get the list of commits",
+      defaultsTo: null);
+  parser.addOption(pointToStart, abbr: "s", help: "Github commit to start");
+  parser.addOption(pointToEnd, abbr: "e", help: "Github commit to end");
+  parser.addFlag(silentKey,
+      abbr: "s",
+      help: "Enable the silent avoid that the debug information are printed",
+      defaultsTo: false);
+  parser.addFlag("help", abbr: "h", help: "print the command line help",
+      callback: (help) {
+    if (!help) {
+      return;
+    }
+    print("\n  Welcome in the Changelog Command line application");
+    print("  Author: Vincenzo Palazzo <vincenzopalazzodev@gmail.com>");
+    print("  License: BSD-3-Clause\n");
+    parser.options.forEach((String key, Option value) {
+      print("\t--$key   -${value.abbr}: ${value.help}");
+    });
+    print("\n\tCommand Example ./changelog_cmd \n\n");
+    exit(0);
+  });
+  return parser.parse(args);
+}
+
+ChangelogGenerator configureGenerator(
+    {required String versionName,
+    required String start,
+    required String end,
+    String? githubRepository}) {
+  GenericFetcher fetcher = GitCmdFetcher(start: start, end: end);
+  if (githubRepository != null) {
+    fetcher =
+        GithubFetcher(start: start, end: end, githubRepo: githubRepository);
+  }
+  var changelog = ChangelogGenerator(fetcher: fetcher);
+  return changelog;
+}
+
+Future<void> main(List<String> arguments) async {
+  var cmd = configureCommandLine(arguments);
+
+  var changelogVersion = cmd[versionName];
+  var github = cmd[githubAPI];
+  var start = cmd[pointToStart];
+  var end = cmd[pointToEnd];
+  var format = cmd[changelogFormat];
+
+  var mediator = PrinterMediator();
+
+  var generator = configureGenerator(
+      versionName: changelogVersion,
+      start: start,
+      end: end,
+      githubRepository: github);
+  var changelogMetadata =
+      await generator.generate(versionName: changelogVersion);
+
+  var result =
+      mediator.generate(fmtFormat: format, changelogInfo: changelogMetadata);
+  if (result) {
+    print("Changelog generated");
+  } else {
+    print("Changelog not generated for some reason!");
+  }
 }

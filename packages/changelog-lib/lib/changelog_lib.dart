@@ -16,3 +16,4 @@ export 'src/model/changelog_model.dart';
 export 'src/model/commit/commit_author.dart';
 export 'src/model/commit/commit_content.dart';
 export 'src/model/commit/commit_info.dart';
+export 'src/fetcher/fetcher_interface.dart';

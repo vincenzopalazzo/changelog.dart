@@ -1,5 +1,4 @@
 import 'package:changelog_lib/changelog_lib.dart';
-import 'package:changelog_lib/src/fetcher/fetcher_interface.dart';
 import 'package:changelog_lib/src/filter_rule/filter_chain.dart';
 import 'package:changelog_lib/src/filter_rule/filter_rule.dart';
 

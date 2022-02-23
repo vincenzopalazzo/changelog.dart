@@ -1,5 +1,4 @@
 import 'package:changelog_lib/changelog_lib.dart';
-import 'package:changelog_lib/src/fetcher/fetcher_interface.dart';
 
 class FetcherMock extends GenericFetcher {
   FetcherMock() : super(start: "", end: "");

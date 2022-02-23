@@ -38,7 +38,12 @@ class FilterRule {
   /// of the match it is specified in the commit info
   final RegExp? regex;
 
-  FilterRule({required this.exactMatch, required this.nameSection, this.regex, this.headerExactMatch, this.headerRegex});
+  FilterRule(
+      {required this.exactMatch,
+      required this.nameSection,
+      this.regex,
+      this.headerExactMatch,
+      this.headerRegex});
 
   /// match is a function that apply the match logic to
   /// return the content to put in the changelog, and
