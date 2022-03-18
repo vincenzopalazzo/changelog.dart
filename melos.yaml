@@ -10,9 +10,9 @@ scripts:
   analyze:
     run: melos exec -c 1 -- "dart analyze . --fatal-infos"
     description: Run dart analyzer in a specific package.
-    select-package:
-      ignore:
-        - "*monorepo*"
+
+  format:
+    run: melos exec -c 1 -- "dart format -o write ."
 
   test:
     description: Run tests in a specific package.
@@ -26,4 +26,8 @@ scripts:
     env:
       MELOS_TEST: true
 
-  format: dart format -o write .
+  gen:
+    run: melos exec --concurrency=1 -- "dart run build_runner build"
+    select-package:
+        ignore:
+          - "*changelog-lib*"

@@ -1,0 +1,12 @@
+query GetLastTag($owner: String!, $name: String!){
+  repository(owner: $owner, name: $name) {
+    releases(last: 1) {
+        edges{
+          node{
+            tagName
+            createdAt
+          }
+        }
+      }
+  }
+}

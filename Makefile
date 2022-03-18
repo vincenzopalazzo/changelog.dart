@@ -15,6 +15,9 @@ fmt:
 	$(CC) run format --no-select
 	$(CC) run analyze --no-select
 
+gen:
+	$(CC) run gen --no-select
+
 ci_check:
 	$(CC) run test --no-select
 

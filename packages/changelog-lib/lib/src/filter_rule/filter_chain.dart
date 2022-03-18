@@ -27,6 +27,12 @@ class FilterChainOfResponsibility {
       }
       changelogSections.add(changelogSection);
     }
+    if (rules.isEmpty) {
+      var mainSection = ChangelogSection(sectionName: "General");
+      for (var element in commits) {
+        mainSection.addChange(change: element.content.commitHeader, authorInfo: element.author);
+      }
+    }
     return changelogSections;
   }
 }

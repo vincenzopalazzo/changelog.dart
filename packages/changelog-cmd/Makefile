@@ -21,7 +21,7 @@ run:
 compete: clean build
 
 clean:
-	rm -rf changelod-cli
+	rm -rf changelod-cli **/**/*.graphql.dart
 
 dep_upgrade:
 	$(CC) pub upgrade --major-versions
