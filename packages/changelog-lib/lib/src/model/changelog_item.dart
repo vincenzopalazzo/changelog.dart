@@ -9,7 +9,8 @@ import 'package:changelog_lib/changelog_lib.dart';
 
 class ChangelogItem {
   final CommitAuthor authorInfo;
+  final String? ref;
   final String content;
 
-  ChangelogItem({required this.authorInfo, required this.content});
+  ChangelogItem({required this.authorInfo, required this.content, this.ref});
 }

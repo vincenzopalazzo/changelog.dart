@@ -1,6 +1,5 @@
 import 'package:changelog_lib/changelog_lib.dart';
 import 'package:changelog_lib/src/filter_rule/filter_chain.dart';
-import 'package:changelog_lib/src/filter_rule/filter_rule.dart';
 
 /// changelog-lib is a package that implement the basic
 /// blocks to create a changelog from a list of metadata

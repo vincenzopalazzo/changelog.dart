@@ -204,6 +204,12 @@ const QUERY_GET_LAST_COMMITS = const DocumentNode(definitions: [
                                           directives: [],
                                           selectionSet: null),
                                       FieldNode(
+                                          name: NameNode(value: 'commitUrl'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null),
+                                      FieldNode(
                                           name: NameNode(value: '__typename'),
                                           alias: null,
                                           arguments: [],
@@ -403,7 +409,8 @@ class QueryGetLastCommits$repository$object$Commit$history$nodes
       required this.messageHeadline,
       required this.messageBody,
       this.author,
-      required this.committedDate});
+      required this.committedDate,
+      required this.commitUrl});
 
   @override
   factory QueryGetLastCommits$repository$object$Commit$history$nodes.fromJson(
@@ -421,6 +428,8 @@ class QueryGetLastCommits$repository$object$Commit$history$nodes
       author;
 
   final String committedDate;
+
+  final String commitUrl;
 
   @override
   Map<String, dynamic> toJson() =>

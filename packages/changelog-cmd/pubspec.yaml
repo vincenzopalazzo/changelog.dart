@@ -12,6 +12,7 @@ dependencies:
   octokit: ^0.0.3
   changelog_lib:
     path: ../changelog-lib
+  intl: ^0.17.0
 dev_dependencies:
   build_runner: ^2.1.7
   gql: ^0.13.0

@@ -70,7 +70,6 @@ class GithubFetcher extends GenericFetcher {
     var rawListCommit = cleanListOfCommit(rawCommits);
 
     for (var rawCommit in rawListCommit) {
-      print(rawCommit?.toJson());
       var author = CommitAuthor(
           commitDate: DateTime.parse(rawCommit!.committedDate),
           gitNickname: rawCommit.author?.user?.login ?? "",
@@ -78,7 +77,8 @@ class GithubFetcher extends GenericFetcher {
       var commitBody = CommitContent(
           commitHeader: rawCommit.messageHeadline,
           commitBody: rawCommit.messageBody);
-      var commitInfo = CommitInfo(author: author, content: commitBody);
+      var commitInfo = CommitInfo(
+          author: author, content: commitBody, url: rawCommit.commitUrl);
       commits.add(commitInfo);
     }
     commits.sort();

@@ -31,7 +31,7 @@ class FilterRule {
 
   /// The exact match need to be specified
   /// and it can contains a prefix for example
-  final String exactMatch;
+  final String? exactMatch;
 
   /// If the exactMatch can fails it is possible
   /// specify a regex, if it match the content
@@ -39,9 +39,9 @@ class FilterRule {
   final RegExp? regex;
 
   FilterRule(
-      {required this.exactMatch,
-      required this.nameSection,
-      this.regex,
+      {required this.nameSection,
+        this.exactMatch,
+        this.regex,
       this.headerExactMatch,
       this.headerRegex});
 
@@ -53,28 +53,37 @@ class FilterRule {
   /// and it is not able to clean the metadata attach to the commit body.
   String? match({required CommitInfo commitInfo}) {
     var headerMatch = _headerMatch(commitInfo: commitInfo);
-    if (!headerMatch) {
+    if (headerMatch == null) {
       return null;
     }
-    return _bodyMatch(commitInfo: commitInfo);
+
+    if (exactMatch != null || regex != null) {
+      return _bodyMatch(commitInfo: commitInfo);
+    }
+    return headerMatch;
   }
 
-  bool _headerMatch({required CommitInfo commitInfo}) {
+  String? _headerMatch({required CommitInfo commitInfo}) {
     if (headerExactMatch == null && headerRegex == null) {
-      return true;
+      return "";
     }
     var header = commitInfo.content.commitHeader;
     if (header.startsWith(headerExactMatch!)) {
-      return true;
+      return header.split(headerExactMatch!).last;
     }
-    var match = regex!.allMatches(header);
-    return match.isNotEmpty;
+    if (headerRegex != null) {
+      var match = headerRegex!.allMatches(header);
+      if (match.isNotEmpty) {
+        return header;
+      }
+    }
+    return null;
   }
 
   String? _bodyMatch({required CommitInfo commitInfo}) {
     var bodyLines = commitInfo.content.commitBody.split("\n");
     for (var line in bodyLines) {
-      if (line.startsWith(exactMatch)) {
+      if (line.startsWith(exactMatch!)) {
         return line;
       }
       if (regex != null) {

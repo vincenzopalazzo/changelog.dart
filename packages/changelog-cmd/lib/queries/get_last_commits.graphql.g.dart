@@ -116,6 +116,7 @@ QueryGetLastCommits$repository$object$Commit$history$nodes
         : QueryGetLastCommits$repository$object$Commit$history$nodes$author
             .fromJson(json['author'] as Map<String, dynamic>),
     committedDate: json['committedDate'] as String,
+    commitUrl: json['commitUrl'] as String,
   );
 }
 
@@ -128,6 +129,7 @@ Map<String,
       'messageBody': instance.messageBody,
       'author': instance.author,
       'committedDate': instance.committedDate,
+      'commitUrl': instance.commitUrl,
     };
 
 QueryGetLastCommits$repository$object$Commit$history$nodes$author

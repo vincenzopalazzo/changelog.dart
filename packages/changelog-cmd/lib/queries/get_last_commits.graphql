@@ -16,6 +16,7 @@ query GetLastCommits($owner: String!, $name: String!, $branch: String!, $since: 
               }
             }
             committedDate
+            commitUrl
           }
         }
       }
