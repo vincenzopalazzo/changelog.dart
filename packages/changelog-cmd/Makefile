@@ -3,9 +3,9 @@ FMT=format
 ARGS="--help"
 PROBLEM=
 
-default: get fmt build
+default: fmt build
 
-get:
+dep:
 	$(CC) pub get
 
 fmt:
