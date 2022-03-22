@@ -11,6 +11,7 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:changelog_cmd/fetcher/git_cmd_fectcher.dart';
 import 'package:changelog_cmd/fetcher/github_fetcher.dart';
+import 'package:changelog_cmd/method/generator_mediator.dart';
 import 'package:changelog_cmd/printer/printer_mediator.dart';
 import 'package:changelog_lib/changelog_lib.dart';
 
@@ -22,6 +23,7 @@ const String githubAPI = "githubAPI";
 const String mainBranch = "githubBranch";
 const String pointToStart = "pointToStart";
 const String pointToEnd = "pointToEnd";
+const String generationMethod = "generationMethod";
 
 /// Configure the command line arguments with the application keys
 ArgResults configureCommandLine(List<String> args) {
@@ -44,6 +46,8 @@ ArgResults configureCommandLine(List<String> args) {
           "Define the branch where we need to derive the changelog. e.g: `main`");
   parser.addOption(pointToStart, abbr: "f", help: "Github commit to start");
   parser.addOption(pointToEnd, abbr: "t", help: "Github commit to end");
+  parser.addOption(generationMethod,
+      abbr: "m", help: "Generation methods", defaultsTo: "header");
   parser.addFlag(silentKey,
       abbr: "s",
       help: "Enable the silent avoid that the debug information are printed",
@@ -92,8 +96,10 @@ Future<void> main(List<String> arguments) async {
   var start = cmd[pointToStart] ?? "";
   var end = cmd[pointToEnd] ?? "";
   var format = cmd[changelogFormat];
+  var genMethod = cmd[generationMethod];
 
-  var mediator = PrinterMediator();
+  var printerMediator = PrinterMediator();
+  var generatorMediator = GeneratorMediator();
 
   var generator = configureGenerator(
       versionName: changelogVersion,
@@ -102,10 +108,12 @@ Future<void> main(List<String> arguments) async {
       fromBranch: branch,
       githubRepository: github);
 
+  generatorMediator.apply(generator: generator, method: genMethod);
+
   var changelogMetadata =
       await generator.generate(versionName: changelogVersion);
 
-  var result = await mediator.generate(
+  var result = await printerMediator.generate(
       fmtFormat: format, changelogInfo: changelogMetadata);
   if (result) {
     print("Changelog generated");

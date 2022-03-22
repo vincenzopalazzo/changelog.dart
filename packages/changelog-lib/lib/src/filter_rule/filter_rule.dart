@@ -67,8 +67,11 @@ class FilterRule {
     if (header.startsWith(headerExactMatch!)) {
       return true;
     }
-    var match = regex!.allMatches(header);
-    return match.isNotEmpty;
+    if (regex != null) {
+      var match = regex!.allMatches(header);
+      return match.isNotEmpty;
+    }
+    return false;
   }
 
   String? _bodyMatch({required CommitInfo commitInfo}) {

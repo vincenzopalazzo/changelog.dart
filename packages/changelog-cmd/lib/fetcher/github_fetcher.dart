@@ -70,7 +70,6 @@ class GithubFetcher extends GenericFetcher {
     var rawListCommit = cleanListOfCommit(rawCommits);
 
     for (var rawCommit in rawListCommit) {
-      print(rawCommit?.toJson());
       var author = CommitAuthor(
           commitDate: DateTime.parse(rawCommit!.committedDate),
           gitNickname: rawCommit.author?.user?.login ?? "",

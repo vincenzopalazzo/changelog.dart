@@ -1,5 +1,4 @@
 import 'package:changelog_lib/changelog_lib.dart';
-import 'package:changelog_lib/src/filter_rule/filter_rule.dart';
 import 'package:changelog_lib/src/model/changelog_section.dart';
 
 /// Filter Chain is a chain of responsibility implementation

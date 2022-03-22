@@ -17,3 +17,4 @@ export 'src/model/commit/commit_author.dart';
 export 'src/model/commit/commit_content.dart';
 export 'src/model/commit/commit_info.dart';
 export 'src/fetcher/fetcher_interface.dart';
+export 'src/filter_rule/filter_rule.dart';
