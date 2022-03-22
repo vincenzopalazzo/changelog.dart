@@ -21,7 +21,7 @@ class FilterChainOfResponsibility {
       for (var commit in commits) {
         var change = rule.match(commitInfo: commit);
         if (change != null) {
-          changelogSection.addChange(change: change, authorInfo: commit.author);
+          changelogSection.addChange(change: change, authorInfo: commit.author, ref: commit.url);
         }
       }
       changelogSections.add(changelogSection);
@@ -30,7 +30,7 @@ class FilterChainOfResponsibility {
     if (rules.isEmpty) {
       var mainSection = ChangelogSection(sectionName: "General");
       for (var element in commits) {
-        mainSection.addChange(change: element.content.commitHeader, authorInfo: element.author);
+        mainSection.addChange(change: element.content.commitHeader, authorInfo: element.author, ref: element.url);
       }
       changelogSections.add(mainSection);
     }

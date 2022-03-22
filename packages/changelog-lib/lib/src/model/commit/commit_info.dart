@@ -9,9 +9,10 @@ import 'package:changelog_lib/src/model/commit/commit_content.dart';
 /// author: https://github.com/vincenzopalazzo
 class CommitInfo extends Comparable {
   final CommitAuthor author;
+  final String? url;
   final CommitContent content;
 
-  CommitInfo({required this.author, required this.content});
+  CommitInfo({required this.author, required this.content, this.url});
 
   @override
   int compareTo(other) {

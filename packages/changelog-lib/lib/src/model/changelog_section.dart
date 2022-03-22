@@ -16,7 +16,7 @@ class ChangelogSection {
   List<ChangelogItem> get changes => _changes;
 
   /// add a new change made from a commit author in the list of changes.
-  void addChange({required String change, required CommitAuthor authorInfo}) {
-    changes.add(ChangelogItem(authorInfo: authorInfo, content: change));
+  void addChange({required String change, required CommitAuthor authorInfo, String? ref}) {
+    changes.add(ChangelogItem(authorInfo: authorInfo, content: change, ref: ref));
   }
 }

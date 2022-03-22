@@ -77,7 +77,8 @@ class GithubFetcher extends GenericFetcher {
       var commitBody = CommitContent(
           commitHeader: rawCommit.messageHeadline,
           commitBody: rawCommit.messageBody);
-      var commitInfo = CommitInfo(author: author, content: commitBody);
+      var commitInfo = CommitInfo(
+          author: author, content: commitBody, url: rawCommit.commitUrl);
       commits.add(commitInfo);
     }
     commits.sort();

@@ -57,10 +57,6 @@ class FilterRule {
       return null;
     }
 
-    if (headerMatch.isEmpty) {
-      return null;
-    }
-
     if (exactMatch != null || regex != null) {
       return _bodyMatch(commitInfo: commitInfo);
     }
@@ -75,8 +71,8 @@ class FilterRule {
     if (header.startsWith(headerExactMatch!)) {
       return header.split(headerExactMatch!).last;
     }
-    if (regex != null) {
-      var match = regex!.allMatches(header);
+    if (headerRegex != null) {
+      var match = headerRegex!.allMatches(header);
       if (match.isNotEmpty) {
         return header;
       }

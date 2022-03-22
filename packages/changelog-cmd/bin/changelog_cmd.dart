@@ -118,7 +118,6 @@ Future<void> main(List<String> arguments) async {
   if (result) {
     print("Changelog generated");
     exit(0);
-
   }
   print("Changelog not generated for some reason!");
   exit(1);

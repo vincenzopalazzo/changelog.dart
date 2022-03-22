@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:changelog_cmd/printer/printer_interface.dart';
 import 'package:changelog_lib/changelog_lib.dart';
+import 'package:intl/intl.dart';
 
 class MarkDownPrinter extends ChangelogPrinter {
   @override
@@ -18,7 +19,7 @@ class MarkDownPrinter extends ChangelogPrinter {
         for (var change in section.changes) {
           // TODO missing the commit hash!
           changelogContent +=
-              "- ${change.content} made in COMMIT_HASH. ${change.authorInfo.commitDate.toIso8601String()}\n";
+              "- ${change.content} (${change.ref ?? ""}). ${change.authorInfo.gitNickname} ${DateFormat("dd-MM-yyyy").format(change.authorInfo.commitDate)}\n";
         }
       }
     }
