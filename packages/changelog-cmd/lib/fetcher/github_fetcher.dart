@@ -44,18 +44,19 @@ class GithubFetcher extends GenericFetcher {
     var tokens = githubRepo.split("/");
 
     // TODO: what happens if there are no release?
-    var lastTwoTags = await _client!.query(
+    var lastTag = await _client!.query(
         query: GQLOptionsQueryGetLastTag(
             variables: VariablesQueryGetLastTag(
       owner: tokens[0],
       name: tokens[1],
     )));
 
-    var rawLastTags = QueryGetLastTag.fromJson(lastTwoTags).repository;
+    var rawLastTags = QueryGetLastTag.fromJson(lastTag).repository;
     var lastRelease = cleanListOfTags(rawLastTags).first;
     if (lastRelease == null) {
       return commits;
     }
+
     var listCommits = await _client!.query(
         query: GQLOptionsQueryGetLastCommits(
             variables: VariablesQueryGetLastCommits(
@@ -69,17 +70,18 @@ class GithubFetcher extends GenericFetcher {
     var rawListCommit = cleanListOfCommit(rawCommits);
 
     for (var rawCommit in rawListCommit) {
+      print(rawCommit?.toJson());
       var author = CommitAuthor(
           commitDate: DateTime.parse(rawCommit!.committedDate),
-          gitNickname: rawCommit.author!.user!.login,
-          email: rawCommit.author!.user!.email);
+          gitNickname: rawCommit.author?.user?.login ?? "",
+          email: rawCommit.author?.user?.email ?? "");
       var commitBody = CommitContent(
           commitHeader: rawCommit.messageHeadline,
           commitBody: rawCommit.messageBody);
       var commitInfo = CommitInfo(author: author, content: commitBody);
       commits.add(commitInfo);
     }
-
+    commits.sort();
     return commits;
   }
 

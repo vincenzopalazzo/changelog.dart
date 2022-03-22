@@ -7,9 +7,14 @@ import 'package:changelog_lib/src/model/commit/commit_content.dart';
 /// to generate the commits
 ///
 /// author: https://github.com/vincenzopalazzo
-class CommitInfo {
+class CommitInfo extends Comparable {
   final CommitAuthor author;
   final CommitContent content;
 
   CommitInfo({required this.author, required this.content});
+
+  @override
+  int compareTo(other) {
+    return -1 * author.commitDate.compareTo(other.author.commitDate);
+  }
 }
