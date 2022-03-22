@@ -19,15 +19,11 @@ class HeaderGenerator extends MethodGenerator {
   @override
   void apply({required ChangelogGenerator generator}) {
     generator.addFilterRule(
-        rule: FilterRule(
-            exactMatch: "", headerExactMatch: "fix:", nameSection: "Fixes"));
+        rule: FilterRule(headerExactMatch: "fix:", nameSection: "Fixes"));
     generator.addFilterRule(
-        rule: FilterRule(
-            exactMatch: "",
-            headerExactMatch: "feat:",
-            nameSection: "New Feature"));
+        rule:
+            FilterRule(headerExactMatch: "feat:", nameSection: "New Feature"));
     generator.addFilterRule(
-        rule: FilterRule(
-            exactMatch: "", headerExactMatch: "doc:", nameSection: "Docs"));
+        rule: FilterRule(headerExactMatch: "doc:", nameSection: "Docs"));
   }
 }

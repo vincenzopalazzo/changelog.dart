@@ -117,7 +117,9 @@ Future<void> main(List<String> arguments) async {
       fmtFormat: format, changelogInfo: changelogMetadata);
   if (result) {
     print("Changelog generated");
-  } else {
-    print("Changelog not generated for some reason!");
+    exit(0);
+
   }
+  print("Changelog not generated for some reason!");
+  exit(1);
 }
