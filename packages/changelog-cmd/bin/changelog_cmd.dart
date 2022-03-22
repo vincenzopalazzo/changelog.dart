@@ -19,6 +19,7 @@ const String versionName = "versionName";
 const String changelogFormat = "changelogFormat";
 const String silentKey = "silent";
 const String githubAPI = "githubAPI";
+const String mainBranch = "githubBranch";
 const String pointToStart = "pointToStart";
 const String pointToEnd = "pointToEnd";
 
@@ -29,7 +30,7 @@ ArgResults configureCommandLine(List<String> args) {
       abbr: "p", help: "The package name where generate the changelog file.");
   parser.addOption(versionName, abbr: "v", help: "The version of the package.");
   parser.addOption(changelogFormat,
-      abbr: "f",
+      abbr: "d",
       help: "Specify the format of the changelog, the default value is md",
       defaultsTo: "md");
   parser.addOption(githubAPI,
@@ -37,8 +38,12 @@ ArgResults configureCommandLine(List<String> args) {
       help:
           "Use the Github API with with the following repository name to get the list of commits",
       defaultsTo: null);
-  parser.addOption(pointToStart, abbr: "s", help: "Github commit to start");
-  parser.addOption(pointToEnd, abbr: "e", help: "Github commit to end");
+  parser.addOption(mainBranch,
+      abbr: "b",
+      help:
+          "Define the branch where we need to derive the changelog. e.g: `main`");
+  parser.addOption(pointToStart, abbr: "f", help: "Github commit to start");
+  parser.addOption(pointToEnd, abbr: "t", help: "Github commit to end");
   parser.addFlag(silentKey,
       abbr: "s",
       help: "Enable the silent avoid that the debug information are printed",
@@ -54,7 +59,7 @@ ArgResults configureCommandLine(List<String> args) {
     parser.options.forEach((String key, Option value) {
       print("\t--$key   -${value.abbr}: ${value.help}");
     });
-    print("\n\tCommand Example ./changelog_cmd \n\n");
+    print("\n\tCommand Example ./changelog-cli \n\n");
     exit(0);
   });
   return parser.parse(args);
@@ -64,11 +69,15 @@ ChangelogGenerator configureGenerator(
     {required String versionName,
     required String start,
     required String end,
+    String fromBranch = "main",
     String? githubRepository}) {
   GenericFetcher fetcher = GitCmdFetcher(start: start, end: end);
   if (githubRepository != null) {
-    fetcher =
-        GithubFetcher(start: start, end: end, githubRepo: githubRepository);
+    fetcher = GithubFetcher(
+        start: start,
+        end: end,
+        githubRepo: githubRepository,
+        fromBranch: fromBranch);
   }
   var changelog = ChangelogGenerator(fetcher: fetcher);
   return changelog;
@@ -79,8 +88,9 @@ Future<void> main(List<String> arguments) async {
 
   var changelogVersion = cmd[versionName];
   var github = cmd[githubAPI];
-  var start = cmd[pointToStart];
-  var end = cmd[pointToEnd];
+  var branch = cmd[mainBranch];
+  var start = cmd[pointToStart] ?? "";
+  var end = cmd[pointToEnd] ?? "";
   var format = cmd[changelogFormat];
 
   var mediator = PrinterMediator();
@@ -89,12 +99,14 @@ Future<void> main(List<String> arguments) async {
       versionName: changelogVersion,
       start: start,
       end: end,
+      fromBranch: branch,
       githubRepository: github);
+
   var changelogMetadata =
       await generator.generate(versionName: changelogVersion);
 
-  var result =
-      mediator.generate(fmtFormat: format, changelogInfo: changelogMetadata);
+  var result = await mediator.generate(
+      fmtFormat: format, changelogInfo: changelogMetadata);
   if (result) {
     print("Changelog generated");
   } else {

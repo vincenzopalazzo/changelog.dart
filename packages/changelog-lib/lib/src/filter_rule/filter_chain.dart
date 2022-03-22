@@ -27,6 +27,14 @@ class FilterChainOfResponsibility {
       }
       changelogSections.add(changelogSection);
     }
+    // If there are no filter rules, we create a simple changelog.
+    if (rules.isEmpty) {
+      var mainSection = ChangelogSection(sectionName: "General");
+      for (var element in commits) {
+        mainSection.addChange(change: element.content.commitHeader, authorInfo: element.author);
+      }
+      changelogSections.add(mainSection);
+    }
     return changelogSections;
   }
 }

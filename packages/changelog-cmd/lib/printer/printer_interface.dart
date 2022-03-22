@@ -11,6 +11,6 @@ abstract class ChangelogPrinter {
   /// Take a list of commits and print
   /// and print in a specific format the
   /// changelog.
-  bool print(
+  Future<bool> print(
       {required ChangelogInfo changelogInfo, String fileName = "CHANGELOG"});
 }

@@ -13,15 +13,16 @@ class PrinterMediator {
     "md": MarkDownPrinter(),
   };
 
-  bool generate(
+  Future<bool> generate(
       {required String fmtFormat,
       required ChangelogInfo changelogInfo,
-      String fileName = "CHANGELOG"}) {
+      String fileName = "CHANGELOG"}) async {
     var printer = printers[fmtFormat];
     if (printer == null) {
       print("Printer for format $fmtFormat is not found");
       return false;
     }
-    return printer.print(changelogInfo: changelogInfo, fileName: fileName);
+    return await printer.print(
+        changelogInfo: changelogInfo, fileName: fileName);
   }
 }

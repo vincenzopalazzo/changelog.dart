@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          assetPath: "/**.graphqls"
+          addTypename: true
+          clients:
+            - graphql

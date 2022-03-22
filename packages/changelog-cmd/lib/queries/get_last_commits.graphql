@@ -1,0 +1,24 @@
+query GetLastCommits($owner: String!, $name: String!, $branch: String!, $since: GitTimestamp!) {
+  repository(owner: $owner, name: $name) {
+    nameWithOwner
+    object(expression: $branch) {
+      ... on Commit {
+        oid
+        history(since: $since) {
+          nodes {
+            oid
+            messageHeadline
+            messageBody
+            author {
+              user {
+                login
+                email
+              }
+            }
+            committedDate
+          }
+        }
+      }
+    }
+  }
+}
