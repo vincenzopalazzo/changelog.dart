@@ -1,8 +1,8 @@
 name: changelog-lib publish to to Pub.dev
 
 on:
-  #release:
-  #  types: [published]
+  release:
+    types: [created]
   pull_request:
   workflow_run:
     workflows:
@@ -25,5 +25,5 @@ jobs:
           credential: ${{ secrets.CREDENTIAL_JSON }}
           flutter_package: false
           skip_test: true
-          dry_run: true
+          dry_run: github.event_name != 'release'
           package_directory: './packages/changelog-lib/'
