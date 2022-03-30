@@ -22,6 +22,7 @@ class GeneratorMediator {
       // with the inclusion of all the commits.
       return;
     }
-    return _methods[method]!.apply(generator: generator);
+    return _methods[method]!.apply(
+        generator: generator, exactMatchHeader: "${generator.packageName}:");
   }
 }

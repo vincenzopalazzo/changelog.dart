@@ -19,7 +19,7 @@ class MarkDownPrinter extends ChangelogPrinter {
         for (var change in section.changes) {
           // TODO missing the commit hash!
           changelogContent +=
-              "- ${change.content} (${change.ref ?? ""}). ${change.authorInfo.gitNickname} ${DateFormat("dd-MM-yyyy").format(change.authorInfo.commitDate)}\n";
+              "- ${change.content} (${change.ref ?? ""}). @${change.authorInfo.gitNickname} ${DateFormat("dd-MM-yyyy").format(change.authorInfo.commitDate)}\n";
         }
       }
     }
