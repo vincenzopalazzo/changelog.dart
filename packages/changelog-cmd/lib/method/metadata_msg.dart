@@ -28,39 +28,39 @@ class MetadataGenerator extends MethodGenerator {
       {required ChangelogGenerator generator,
       String? exactMatchHeader,
       RegExp? regexHeader,
-      bool strictly = false}) {
+      bool strictly = true}) {
     generator.addFilterRule(
         rule: FilterRule(
             nameSection: 'Added',
-            exactMatch: "Changelog-Added",
+            exactMatch: "Changelog-Added:",
             headerExactMatch: exactMatchHeader,
             regex: regexHeader,
             strict: strictly));
     generator.addFilterRule(
         rule: FilterRule(
             nameSection: 'Changed',
-            exactMatch: "Changelog-Changed",
+            exactMatch: "Changelog-Changed:",
             headerExactMatch: exactMatchHeader,
             regex: regexHeader,
             strict: strictly));
     generator.addFilterRule(
         rule: FilterRule(
             nameSection: 'Deprecated',
-            exactMatch: "Changelog-Deprecated",
+            exactMatch: "Changelog-Deprecated:",
             headerExactMatch: exactMatchHeader,
             regex: regexHeader,
             strict: strictly));
     generator.addFilterRule(
         rule: FilterRule(
             nameSection: 'Fixed',
-            exactMatch: "Changelog-Fixed",
+            exactMatch: "Changelog-Fixed:",
             headerExactMatch: exactMatchHeader,
             regex: regexHeader,
             strict: strictly));
     generator.addFilterRule(
         rule: FilterRule(
             nameSection: 'Experimental',
-            exactMatch: "Changelog-Experimental",
+            exactMatch: "Changelog-Experimental:",
             headerExactMatch: exactMatchHeader,
             regex: regexHeader,
             strict: strictly));
