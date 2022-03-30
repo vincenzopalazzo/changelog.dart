@@ -6,7 +6,17 @@ ide:
 packages:
   - packages/**
 
+command:
+  version:
+    updateGitTagRefs: true
+
 scripts:
+  build_cmd:
+    run: melos exec -c 1 -- "dart compile exe bin/changelog_cmd.dart -o build/changelog-cli-$OS"
+    description: Build the cmd tools.
+    select-package:
+      ignore: "*changelog_lib*"
+
   analyze:
     run: melos exec -c 1 -- "dart analyze . --fatal-infos"
     description: Run dart analyzer in a specific package.
@@ -30,4 +40,4 @@ scripts:
     run: melos exec --concurrency=1 -- "dart run build_runner build"
     select-package:
         ignore:
-          - "*changelog-lib*"
+          - "*changelog_lib*"

@@ -1,5 +1,7 @@
 CC=dart pub global run melos
 CC_TEST=PATH="$(PATH)":"$(HOME)/.pub-cache/bin" spec
+PACKAGE=
+TYPE=
 
 default: dep check
 
@@ -22,6 +24,12 @@ ci_check:
 	$(CC) run test --no-select
 
 ci: dep ci_check
+
+build:
+	$(CC) run build_cmd --no-select
+
+version:
+	$(CC) version $(PACKAGE) $(TYPE)
 
 clean:
 	$(CC) clean

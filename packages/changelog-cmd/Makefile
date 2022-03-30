@@ -3,6 +3,7 @@ FMT=format
 ARGS="--help"
 PROBLEM=
 TARGET="changelog-cli"
+OS="linux"
 
 default: fmt build
 
