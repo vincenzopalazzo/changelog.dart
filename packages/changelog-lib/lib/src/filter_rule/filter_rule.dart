@@ -38,12 +38,24 @@ class FilterRule {
   /// of the match it is specified in the commit info
   final RegExp? regex;
 
+  /// If true, The check between header and body need to be strict
+  /// this mean that the check on the header and the body must be
+  /// satisfied.
+  /// if false (as default), if the header it is not matching but
+  /// the body yes, the commit is checked anyway
+  ///
+  /// This is useful when there are packages information on the header
+  /// but this information are not satisfied, but we want add the info
+  /// anyway if the body match!
+  final bool strict;
+
   FilterRule(
       {required this.nameSection,
-        this.exactMatch,
-        this.regex,
+      this.exactMatch,
+      this.regex,
       this.headerExactMatch,
-      this.headerRegex});
+      this.headerRegex,
+      this.strict = false});
 
   /// match is a function that apply the match logic to
   /// return the content to put in the changelog, and
@@ -53,7 +65,7 @@ class FilterRule {
   /// and it is not able to clean the metadata attach to the commit body.
   String? match({required CommitInfo commitInfo}) {
     var headerMatch = _headerMatch(commitInfo: commitInfo);
-    if (headerMatch == null) {
+    if (headerMatch == null && strict) {
       return null;
     }
 

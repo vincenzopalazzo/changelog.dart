@@ -22,10 +22,16 @@ class ChangelogGenerator {
   /// The fetcher that the user decide
   /// to use in order to receive the commit information.
   final GenericFetcher fetcher;
+
+  /// Sequence of rules that need to be satisfied to
+  /// to filter the commits
   final FilterChainOfResponsibility _filterChain =
       FilterChainOfResponsibility();
 
-  ChangelogGenerator({required this.fetcher});
+  /// The name of the package/tool/lib
+  final String packageName;
+
+  ChangelogGenerator({required this.packageName, required this.fetcher});
 
   /// method to add a new filter rule to generate a new section
   /// in the changelog.
