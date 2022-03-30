@@ -1,3 +1,5 @@
 .idea
 
 packages/changelog-cmd/changelod-cli
+
+packages/changelog-cmd/changelog-cli
