@@ -1,4 +1,5 @@
-# v5.0.2-beta.7
+# v0.0.1-alpha.2
+- no changes
 
-## New Feature
--  Stricter analysis made in https://github.com/zino-hofmann/graphql-flutter/commit/131ea1f78b55554f730269f94aad11fb1d07cc44. 19-03-2022
+# v0.0.1-alpha.1
+- no changes
