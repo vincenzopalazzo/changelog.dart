@@ -81,7 +81,7 @@ class FilterRule {
     }
     var header = commitInfo.content.commitHeader;
     if (header.startsWith(headerExactMatch!)) {
-      return header.split(headerExactMatch!).last;
+      return header.split(headerExactMatch!).last.trim();
     }
     if (headerRegex != null) {
       var match = headerRegex!.allMatches(header);
@@ -96,7 +96,7 @@ class FilterRule {
     var bodyLines = commitInfo.content.commitBody.split("\n");
     for (var line in bodyLines) {
       if (line.startsWith(exactMatch!)) {
-        return line;
+        return line.split(exactMatch!).last.trim();
       }
       if (regex != null) {
         var match = regex!.allMatches(line);
