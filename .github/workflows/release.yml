@@ -1,0 +1,22 @@
+name: Publish to Pub.dev
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publishing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2 # required!
+
+      - name: '>> Publish libs to to Pub.dev <<'
+        uses: k-paxian/dart-package-publisher@master
+        with:
+          credentialJson: ${{ secrets.CREDENTIAL_JSON }}
+          flutter: false
+          force: false
+          skipTests: true
+          dryRunOnly: true
+          relativePath: './packages/changelog-lib/'
