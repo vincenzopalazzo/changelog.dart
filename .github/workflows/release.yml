@@ -1,8 +1,16 @@
-name: Publish to Pub.dev
+name: changelog-lib publish to to Pub.dev
 
 on:
-  release:
-    types: [published]
+  #release:
+  #  types: [published]
+  pull_request:
+  workflow_run:
+    workflows:
+      - "changelog.dart sanity code base"
+      - "changelog.dar test"
+    branches: [ main ]
+    types:
+      - completed
 
 jobs:
   publishing:
@@ -11,12 +19,11 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v2 # required!
 
-      - name: '>> Publish libs to to Pub.dev <<'
-        uses: k-paxian/dart-package-publisher@master
+      - name: 'changelog-lib publish to to Pub.dev'
+        uses: sakebook/actions-flutter-pub-publisher@v1.4.0
         with:
-          credentialJson: ${{ secrets.CREDENTIAL_JSON }}
-          flutter: false
-          force: false
-          skipTests: true
-          dryRunOnly: true
-          relativePath: './packages/changelog-lib/'
+          credential: ${{ secrets.CREDENTIAL_JSON }}
+          flutter_package: false
+          skip_test: true
+          dry_run: true
+          package_directory: './packages/changelog-lib/'
