@@ -5,7 +5,8 @@ import 'package:test/scaffolding.dart';
 import 'mock/fetcher_mock.dart';
 
 Future<void> main() async {
-  var generator = ChangelogGenerator(fetcher: FetcherMock());
+  var generator =
+      ChangelogGenerator(packageName: 'test', fetcher: FetcherMock());
 
   group('generating changelog from mock fetcher', () {
     test('Generate from one rules', () async {

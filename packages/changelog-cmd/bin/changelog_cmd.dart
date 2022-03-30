@@ -70,7 +70,8 @@ ArgResults configureCommandLine(List<String> args) {
 }
 
 ChangelogGenerator configureGenerator(
-    {required String versionName,
+    {required String packageName,
+      required String versionName,
     required String start,
     required String end,
     String fromBranch = "main",
@@ -83,7 +84,7 @@ ChangelogGenerator configureGenerator(
         githubRepo: githubRepository,
         fromBranch: fromBranch);
   }
-  var changelog = ChangelogGenerator(fetcher: fetcher);
+  var changelog = ChangelogGenerator(packageName: packageName, fetcher: fetcher);
   return changelog;
 }
 
@@ -97,11 +98,13 @@ Future<void> main(List<String> arguments) async {
   var end = cmd[pointToEnd] ?? "";
   var format = cmd[changelogFormat];
   var genMethod = cmd[generationMethod];
+  var package = cmd[packageName] ?? '';
 
   var printerMediator = PrinterMediator();
   var generatorMediator = GeneratorMediator();
 
   var generator = configureGenerator(
+    packageName: package,
       versionName: changelogVersion,
       start: start,
       end: end,

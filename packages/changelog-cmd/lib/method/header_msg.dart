@@ -1,6 +1,3 @@
-import 'package:changelog_cmd/method/method_generation.dart';
-import 'package:changelog_lib/changelog_lib.dart';
-
 /// Header Msg is the method generator to generate the changelog
 /// from the message header like this example here
 /// https://github.com/invertase/melos/blob/main/packages/melos/CHANGELOG.md
@@ -14,10 +11,16 @@ import 'package:changelog_lib/changelog_lib.dart';
 /// - `docs: message ` to document a new doc addition.
 ///
 /// author: https://github.com/vincenzopalazzo
+import 'package:changelog_cmd/method/method_generation.dart';
+import 'package:changelog_lib/changelog_lib.dart';
 
 class HeaderGenerator extends MethodGenerator {
   @override
-  void apply({required ChangelogGenerator generator}) {
+  void apply(
+      {required ChangelogGenerator generator,
+      String? exactMatchHeader,
+      RegExp? regexHeader,
+      bool strictly = false}) {
     generator.addFilterRule(
         rule: FilterRule(headerExactMatch: "fix:", nameSection: "Fixes"));
     generator.addFilterRule(
@@ -25,5 +28,18 @@ class HeaderGenerator extends MethodGenerator {
             FilterRule(headerExactMatch: "feat:", nameSection: "New Feature"));
     generator.addFilterRule(
         rule: FilterRule(headerExactMatch: "doc:", nameSection: "Docs"));
+
+    generator.addFilterRule(
+        rule: FilterRule(
+            headerExactMatch: "fix(${generator.packageName}):",
+            nameSection: "Fixes"));
+    generator.addFilterRule(
+        rule: FilterRule(
+            headerExactMatch: "feat(${generator.packageName}):",
+            nameSection: "New Feature"));
+    generator.addFilterRule(
+        rule: FilterRule(
+            headerExactMatch: "doc(${generator.packageName}):",
+            nameSection: "Docs"));
   }
 }
