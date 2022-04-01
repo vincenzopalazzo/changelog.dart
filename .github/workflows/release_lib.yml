@@ -1,4 +1,4 @@
-name: changelog-lib publish to to Pub.dev
+name: changelog.dart publish to to Pub.dev
 
 on:
   release:
@@ -13,17 +13,33 @@ on:
       - completed
 
 jobs:
-  publishing:
+  publishing_lib:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2 # required!
 
       - name: 'changelog-lib publish to to Pub.dev'
-        uses: sakebook/actions-flutter-pub-publisher@v1.4.0
+        uses: k-paxian/dart-package-publisher@master
         with:
-          credential: ${{ secrets.CREDENTIAL_JSON }}
-          flutter_package: false
-          skip_test: true
-          dry_run: ${{ github.event_name != 'release' }}
-          package_directory: './packages/changelog-lib/'
+          credentialJson: ${{ secrets.CREDENTIAL_JSON }}
+          flutter: false
+          skipTests: true
+          dryRunOnly: ${{ github.event_name != 'release' }}
+          relativePath: './packages/changelog-lib/'
+  publishing_cmd:
+    runs-on: ubuntu-latest
+    needs:
+      - publishing_lib
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2 # required!
+
+      - name: 'changelog-lib publish to to Pub.dev'
+        uses: k-paxian/dart-package-publisher@master
+        with:
+          credentialJson: ${{ secrets.CREDENTIAL_JSON }}
+          flutter: false
+          skipTests: true
+          dryRunOnly: ${{ github.event_name != 'release' }}
+          relativePath: './packages/changelog-lib/'
