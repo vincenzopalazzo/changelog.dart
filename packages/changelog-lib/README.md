@@ -1,7 +1,7 @@
 <div align="center">
   <h1>changelog.lib</h1>
 
-  <img src="https://github.com/dart-lightning/icons/raw/main/main/res/mipmap-xxxhdpi/ic_launcher.png" />
+  <img src="https://github.com/vincenzopalazzo/changelog.dart/raw/main/docs/ic_launcher.png" />
 
   <p>
     <strong> :dart: changelog.lib: build your changelog extractor in a fashion way :dart: </strong>
