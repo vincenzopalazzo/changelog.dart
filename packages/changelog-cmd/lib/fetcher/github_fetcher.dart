@@ -30,7 +30,10 @@ class GithubFetcher extends GenericFetcher {
   /// Configure the Github client.
   GithubClient configure() {
     var sysEnv = Platform.environment;
-    var token = sysEnv[constants.githubToken]!;
+    var token = sysEnv[constants.githubToken];
+    if (token == null) {
+      throw Exception("env variable ${constants.githubToken} not found ");
+    }
     _client = GithubClient(token: token);
     return _client!;
   }

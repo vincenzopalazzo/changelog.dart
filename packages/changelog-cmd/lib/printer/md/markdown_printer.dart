@@ -11,15 +11,14 @@ class MarkDownPrinter extends ChangelogPrinter {
       {required ChangelogInfo changelogInfo,
       String fileName = "CHANGELOG"}) async {
     var versionName = changelogInfo.versionName;
-    var changelogContent = "# $versionName\n\n";
+    var changelogContent = "# $versionName\n";
     for (var section in changelogInfo.sections) {
       if (section.changes.isNotEmpty) {
-        changelogContent += "## ${section.sectionName}\n";
+        changelogContent += "\n## ${section.sectionName}\n";
 
         for (var change in section.changes) {
-          // TODO missing the commit hash!
           changelogContent +=
-              "- ${change.content} (${change.ref ?? ""}). @${change.authorInfo.gitNickname} ${DateFormat("dd-MM-yyyy").format(change.authorInfo.commitDate)}\n";
+              "- ${change.content} ([commit](${change.ref ?? ""})). @${change.authorInfo.gitNickname} ${DateFormat("dd-MM-yyyy").format(change.authorInfo.commitDate)}\n";
         }
       }
     }
