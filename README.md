@@ -1,10 +1,10 @@
 <div align="center">
   <h1>changelog.dart</h1>
 
-  <img src="https://github.com/dart-lightning/icons/raw/main/main/res/mipmap-xxxhdpi/ic_launcher.png" />
+  <img src="https://github.com/vincenzopalazzo/changelog.dart/raw/main/docs/ic_launcher.png" />
 
   <p>
-    <strong> :dart: Dart framework for C-Lightning to work with the RPC interface :dart: </strong>
+    <strong> :dart: changelog.dart: a collection of tools to manages in a fashion way a repository as maintainer. :dart: </strong>
   </p>
 
   <p>
@@ -25,15 +25,15 @@
 
 # Introduction
 
-changelog.dart is a collection of tools to manages in a fashion way a repository as maintainer.
+changelog.dart is a collection of tools to manage in a fashion way a repository as maintainer.
 
-In particular one of the issue if a maintainer works with different project in different language, is the standart
+In particular one of the issue if a maintainer works with different project in different language, is the standard
 that a community may use.
 
 For example, dart community has a very defined standard to generate the changelog.
 
-With this tools you can forget to create your own script for each language, or project but you can use a single command line tools
-or you can develop your own command line tools with the changelog_lib package that provided all the building blocks to create a well defined
+With these tools you can forget to create your own script for each language, or project, but you can use a single command line tools,
+or you can develop your own command line tools with the changelog_lib package that provided all the building blocks to create a well-defined
 changelog.
 
 # How to Use

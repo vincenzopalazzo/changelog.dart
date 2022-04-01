@@ -1,7 +1,7 @@
 <div align="center">
   <h1>changelog.cmd</h1>
 
-  <img src="https://github.com/dart-lightning/icons/raw/main/main/res/mipmap-xxxhdpi/ic_launcher.png" />
+  <img src="https://github.com/vincenzopalazzo/changelog.dart/raw/main/docs/ic_launcher.png" />
 
   <p>
     <strong> :dart: changelog.cmd: generate your changelog in a flexible way :dart: </strong>
