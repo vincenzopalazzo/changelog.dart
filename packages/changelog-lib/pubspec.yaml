@@ -1,5 +1,5 @@
 name: changelog_lib
-description: A starting point for Dart libraries or applications.
+description: build your changelog extractor in a fashion way.
 version: 0.0.1-beta.1
 homepage: https://github.com/vincenzopalazzo/changelog.dart
 
