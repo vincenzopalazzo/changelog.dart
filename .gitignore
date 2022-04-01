@@ -3,3 +3,5 @@
 packages/changelog-cmd/changelod-cli
 
 packages/changelog-cmd/changelog-cli
+
+.dart_tool/melos_tool/packages/changelog-cmd/.dart_tool/
