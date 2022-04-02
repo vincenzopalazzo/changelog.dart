@@ -5,7 +5,7 @@ PROBLEM=
 TARGET="changelog-cli"
 OS="linux"
 
-default: fmt build
+default: fmt compile
 
 dep:
 	$(CC) pub get
@@ -14,7 +14,7 @@ fmt:
 	$(CC) $(FMT) .
 	$(CC) analyze .
 
-build:
+compile:
 	$(CC) compile exe bin/changelog_cmd.dart -o changelog-cli
 
 run:

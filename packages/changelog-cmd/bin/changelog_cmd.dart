@@ -9,6 +9,8 @@ import 'dart:core';
 import 'dart:io';
 
 import 'package:args/args.dart';
+import 'package:changelog_cmd/config/config_manager.dart';
+import 'package:changelog_cmd/config/config_model.dart';
 import 'package:changelog_cmd/fetcher/git_cmd_fectcher.dart';
 import 'package:changelog_cmd/fetcher/github_fetcher.dart';
 import 'package:changelog_cmd/method/generator_mediator.dart';
@@ -24,6 +26,7 @@ const String mainBranch = "githubBranch";
 const String pointToStart = "pointToStart";
 const String pointToEnd = "pointToEnd";
 const String generationMethod = "generationMethod";
+const String configFile = "configFile";
 
 /// Configure the command line arguments with the application keys
 ArgResults configureCommandLine(List<String> args) {
@@ -46,6 +49,7 @@ ArgResults configureCommandLine(List<String> args) {
           "Define the branch where we need to derive the changelog. e.g: `main`");
   parser.addOption(pointToStart, abbr: "f", help: "Github commit to start");
   parser.addOption(pointToEnd, abbr: "t", help: "Github commit to end");
+  parser.addOption(configFile, abbr: "c", help: "Config file path");
   parser.addOption(generationMethod,
       abbr: "m", help: "Generation methods", defaultsTo: "header");
   parser.addFlag(silentKey,
@@ -69,20 +73,14 @@ ArgResults configureCommandLine(List<String> args) {
   return parser.parse(args);
 }
 
-ChangelogGenerator configureGenerator(
-    {required String packageName,
-    required String versionName,
-    required String start,
-    required String end,
-    String fromBranch = "main",
-    String? githubRepository}) {
-  GenericFetcher fetcher = GitCmdFetcher(start: start, end: end);
-  if (githubRepository != null) {
+ChangelogGenerator configureGenerator({required Config config}) {
+  GenericFetcher fetcher = GitCmdFetcher(start: "", end: "");
+  if (config.api.name == "github") {
     fetcher = GithubFetcher(
-        start: start,
-        end: end,
-        githubRepo: githubRepository,
-        fromBranch: fromBranch);
+        start: "",
+        end: "",
+        githubRepo: config.api.repository!,
+        fromBranch: config.api.branch!);
   }
   var changelog =
       ChangelogGenerator(packageName: packageName, fetcher: fetcher);
@@ -91,34 +89,44 @@ ChangelogGenerator configureGenerator(
 
 Future<void> main(List<String> arguments) async {
   var cmd = configureCommandLine(arguments);
+  var confPath = cmd[configFile];
 
-  var changelogVersion = cmd[versionName];
-  var github = cmd[githubAPI];
-  var branch = cmd[mainBranch];
-  var start = cmd[pointToStart] ?? "";
-  var end = cmd[pointToEnd] ?? "";
-  var format = cmd[changelogFormat];
-  var genMethod = cmd[generationMethod];
-  var package = cmd[packageName] ?? '';
+  var config = await ConfigManager.loadConfFromPath(file: confPath);
+  if (config == null) {
+    var changelogVersion = cmd[versionName];
+    var github = cmd[githubAPI] ?? '';
+    var branch = cmd[mainBranch] ?? '';
+    //var start = cmd[pointToStart];
+    //var end = cmd[pointToEnd];
+    //var format = cmd[changelogFormat];
+    var genMethod = cmd[generationMethod];
+    var package = cmd[packageName];
+
+    config = Config(
+        api: API(
+          name: github == null ? "git" : "github",
+          repository: github,
+          branch: github != null ? (branch ?? 'main') : '',
+        ),
+        generatorMethod: GeneratorMethod(name: genMethod, headerFiler: false),
+        packageName: package,
+        version: changelogVersion);
+  }
 
   var printerMediator = PrinterMediator();
   var generatorMediator = GeneratorMediator();
 
-  var generator = configureGenerator(
-      packageName: package,
-      versionName: changelogVersion,
-      start: start,
-      end: end,
-      fromBranch: branch,
-      githubRepository: github);
+  var generator = configureGenerator(config: config);
 
-  generatorMediator.apply(generator: generator, method: genMethod);
+  generatorMediator.apply(
+      generator: generator,
+      config: config,
+      method: config.generatorMethod.name);
 
-  var changelogMetadata =
-      await generator.generate(versionName: changelogVersion);
+  var changelogMetadata = await generator.generate(versionName: config.version);
 
   var result = await printerMediator.generate(
-      fmtFormat: format, changelogInfo: changelogMetadata);
+      fmtFormat: "md", changelogInfo: changelogMetadata);
   if (result) {
     print("Changelog generated");
     exit(0);

@@ -88,9 +88,9 @@ packages:
   changelog_lib:
     dependency: "direct main"
     description:
-      path: "../changelog-lib"
-      relative: true
-    source: path
+      name: changelog_lib
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.1-beta.1"
   charcode:
     dependency: transitive
@@ -184,7 +184,7 @@ packages:
     source: hosted
     version: "2.0.2"
   gql:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: gql
       url: "https://pub.dartlang.org"
@@ -240,7 +240,7 @@ packages:
     source: hosted
     version: "0.2.0"
   graphql:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: graphql
       url: "https://pub.dartlang.org"
@@ -317,14 +317,14 @@ packages:
     source: hosted
     version: "0.6.4"
   json_annotation:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.0"
   json_serializable:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: json_serializable
       url: "https://pub.dartlang.org"

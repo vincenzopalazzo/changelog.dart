@@ -8,3 +8,4 @@ analyzer:
    exclude:
      - "**/*.graphql.dart"
      - "**/*.graphql.g.dart"
+     - "**/*.g.dart"

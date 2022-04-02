@@ -2,6 +2,7 @@
 /// supported by the changelog command line
 ///
 /// author: https://github.com/vincenzopalazzo
+import 'package:changelog_cmd/config/config_model.dart';
 import 'package:changelog_cmd/method/header_msg.dart';
 import 'package:changelog_cmd/method/metadata_msg.dart';
 import 'package:changelog_cmd/method/method_generation.dart';
@@ -16,13 +17,18 @@ class GeneratorMediator {
   /// Check if inside the map there is a method generator with the name provided
   /// otherwise the `header` method is used
   void apply(
-      {required ChangelogGenerator generator, String method = "header"}) {
+      {required ChangelogGenerator generator,
+      required Config config,
+      String method = "header"}) {
     if (!_methods.containsKey(method)) {
       // No exception here it is applied trivial changelog
       // with the inclusion of all the commits.
       return;
     }
-    return _methods[method]!.apply(
-        generator: generator, exactMatchHeader: "${generator.packageName}:");
+    if (config.generatorMethod.headerFiler) {
+      return _methods[method]!.apply(
+          generator: generator, exactMatchHeader: "${generator.packageName}:");
+    }
+    return _methods[method]!.apply(generator: generator);
   }
 }
