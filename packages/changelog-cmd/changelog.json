@@ -1,0 +1,15 @@
+{
+  "package_name": "some_name",
+  "version": "v0.0.1",
+  "api": {
+    "name": "github",
+    "repository": "LNOpenMetrics/lnmetrics.utils"
+  },
+  "generation_method": {
+    "name": "metadata",
+    "header_filter": false
+  },
+  "serialization_method": {
+    "name": "md"
+  }
+}

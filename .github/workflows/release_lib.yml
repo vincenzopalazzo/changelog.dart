@@ -35,11 +35,11 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v2 # required!
 
-      - name: 'changelog-lib publish to to Pub.dev'
+      - name: 'changelog-cmd publish to to Pub.dev'
         uses: k-paxian/dart-package-publisher@master
         with:
           credentialJson: ${{ secrets.CREDENTIAL_JSON }}
           flutter: false
           skipTests: true
           dryRunOnly: ${{ github.event_name != 'release' }}
-          relativePath: './packages/changelog-lib/'
+          relativePath: './packages/changelog-cmd/'

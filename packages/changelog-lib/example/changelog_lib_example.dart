@@ -25,12 +25,11 @@ class FetcherMock extends GenericFetcher {
   }
 }
 
-
 Future<void> main() async {
   // create the generator ith your own fetcher, so you
   // can implement any type of fetcher from any source like Github ecc
   var generator =
-  ChangelogGenerator(packageName: 'test', fetcher: FetcherMock());
+      ChangelogGenerator(packageName: 'test', fetcher: FetcherMock());
 
   // the list of commits are filter by this rules
   generator.addFilterRule(
