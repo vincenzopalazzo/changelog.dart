@@ -1,3 +1,12 @@
+# v0.0.1-beta.2
+
+## Added
+- add conf file to load all the changelog settings ([commit](https://github.com/vincenzopalazzo/changelog.dart/commit/321faaf4c6274b64cc2a636fda5810561aff7841)). @vincenzopalazzo 02-04-2022
+
+## Fixed
+- changelog generator configuration, take the correct package name from conf. ([commit](https://github.com/vincenzopalazzo/changelog.dart/commit/8e4c533e9772d9310dee6a4165515d7d8e2a36ab)). @vincenzopalazzo 04-04-2022
+
+
 # v0.0.1-beta.1
 
 

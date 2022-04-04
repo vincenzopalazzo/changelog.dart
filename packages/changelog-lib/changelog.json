@@ -1,5 +1,5 @@
 {
-  "package_name": "changelog_cmd",
+  "package_name": "changelog_lib",
   "version": "v0.0.1-beta.2",
   "api": {
     "name": "github",
