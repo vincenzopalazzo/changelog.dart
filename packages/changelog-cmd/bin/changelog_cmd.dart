@@ -83,7 +83,7 @@ ChangelogGenerator configureGenerator({required Config config}) {
         fromBranch: config.api.branch!);
   }
   var changelog =
-      ChangelogGenerator(packageName: packageName, fetcher: fetcher);
+      ChangelogGenerator(packageName: config.packageName, fetcher: fetcher);
   return changelog;
 }
 
