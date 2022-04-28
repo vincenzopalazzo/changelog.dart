@@ -15,8 +15,22 @@ Future<void> main() async {
       var changelog = await generator.generate(versionName: "0.0.1");
       expect(changelog.versionName, "0.0.1");
       expect(changelog.sections.length, 1);
-      expect(changelog.sections[0].sectionName, "Add");
-      expect(changelog.sections[0].changes.length, 1);
+      expect(changelog.sections.values.first.sectionName, "Add");
+      expect(changelog.sections.values.first.changes.length, 1);
+    });
+
+    test('Generate from one rules in multiple section', () async {
+      generator.addFilterRule(
+          rule: FilterRule(
+              exactMatch: "Changelog-add",
+              nameSection: "Add",
+              headerExactMatch: "graphql"));
+      var changelog = await generator.generate(versionName: "0.0.1");
+      expect(changelog.versionName, "0.0.1");
+      expect(changelog.sections.length, 1);
+      expect(changelog.sections.values.first.sectionName, "Add");
+      // merge the two commits filter in one section
+      expect(changelog.sections.values.first.changes.length, 2);
     });
   });
 }
