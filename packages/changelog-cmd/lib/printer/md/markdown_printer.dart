@@ -12,7 +12,7 @@ class MarkDownPrinter extends ChangelogPrinter {
       String fileName = "CHANGELOG"}) async {
     var versionName = changelogInfo.versionName;
     var changelogContent = "# $versionName\n";
-    for (var section in changelogInfo.sections) {
+    for (var section in changelogInfo.sections.values) {
       if (section.changes.isNotEmpty) {
         changelogContent += "\n## ${section.sectionName}\n";
 
