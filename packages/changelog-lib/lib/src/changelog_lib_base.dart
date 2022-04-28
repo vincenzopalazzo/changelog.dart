@@ -45,7 +45,8 @@ class ChangelogGenerator {
   Future<ChangelogInfo> generate({required String versionName}) async {
     var commits = await fetcher.fetch();
     var sections = _filterChain.filter(commits: commits);
-    var changelog = ChangelogInfo(versionName: versionName, sections: sections);
+    var changelog =
+        ChangelogInfo(versionName: versionName, rawSection: sections);
     return changelog;
   }
 }
