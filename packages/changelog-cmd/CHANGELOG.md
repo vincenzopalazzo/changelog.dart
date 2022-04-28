@@ -1,3 +1,9 @@
+# v0.0.1-beta.3
+
+## Added
+- changelog_cmd: update the changelog_lib version ([commit](https://github.com/vincenzopalazzo/changelog.dart/commit/9c5e2bffb07e128c14cad155ebcb624f85d6d701)). @vincenzopalazzo 28-04-2022
+
+
 # v0.0.1-beta.2
 
 ## Added

@@ -1,3 +1,9 @@
+# v0.0.1-beta.3
+
+## Fixed
+- changelog_lib: fixed section duplication when there is a complex filter. ([commit](https://github.com/vincenzopalazzo/changelog.dart/commit/9e1d14cc70f3677a2ee84c2ac84ced0f6aaf94b2)). @vincenzopalazzo 28-04-2022
+
+
 # v0.0.1-beta.2
 
 
