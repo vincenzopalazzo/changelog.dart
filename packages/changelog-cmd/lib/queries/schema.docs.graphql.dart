@@ -5591,6 +5591,7 @@ enum EnumAuditLogOrderField {
   createdAt,
   $unknown
 }
+
 enum EnumCheckAnnotationLevel {
   @JsonValue('FAILURE')
   failure,
@@ -5600,6 +5601,7 @@ enum EnumCheckAnnotationLevel {
   warning,
   $unknown
 }
+
 enum EnumCheckConclusionState {
   @JsonValue('ACTION_REQUIRED')
   actionRequired,
@@ -5621,6 +5623,7 @@ enum EnumCheckConclusionState {
   timedOut,
   $unknown
 }
+
 enum EnumCheckRunType {
   @JsonValue('ALL')
   all,
@@ -5628,6 +5631,7 @@ enum EnumCheckRunType {
   latest,
   $unknown
 }
+
 enum EnumCheckStatusState {
   @JsonValue('COMPLETED')
   completed,
@@ -5643,6 +5647,7 @@ enum EnumCheckStatusState {
   waiting,
   $unknown
 }
+
 enum EnumCollaboratorAffiliation {
   @JsonValue('ALL')
   all,
@@ -5652,6 +5657,7 @@ enum EnumCollaboratorAffiliation {
   outside,
   $unknown
 }
+
 enum EnumCommentAuthorAssociation {
   @JsonValue('COLLABORATOR')
   collaborator,
@@ -5671,6 +5677,7 @@ enum EnumCommentAuthorAssociation {
   owner,
   $unknown
 }
+
 enum EnumCommentCannotUpdateReason {
   @JsonValue('ARCHIVED')
   archived,
@@ -5688,6 +5695,7 @@ enum EnumCommentCannotUpdateReason {
   verifiedEmailRequired,
   $unknown
 }
+
 enum EnumCommitContributionOrderField {
   @JsonValue('COMMIT_COUNT')
   commitCount,
@@ -5695,6 +5703,7 @@ enum EnumCommitContributionOrderField {
   occurredAt,
   $unknown
 }
+
 enum EnumContributionLevel {
   @JsonValue('FIRST_QUARTILE')
   firstQuartile,
@@ -5708,6 +5717,7 @@ enum EnumContributionLevel {
   thirdQuartile,
   $unknown
 }
+
 enum EnumDefaultRepositoryPermissionField {
   @JsonValue('ADMIN')
   admin,
@@ -5719,11 +5729,13 @@ enum EnumDefaultRepositoryPermissionField {
   write,
   $unknown
 }
+
 enum EnumDeploymentOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumDeploymentProtectionRuleType {
   @JsonValue('REQUIRED_REVIEWERS')
   requiredReviewers,
@@ -5731,6 +5743,7 @@ enum EnumDeploymentProtectionRuleType {
   waitTimer,
   $unknown
 }
+
 enum EnumDeploymentReviewState {
   @JsonValue('APPROVED')
   approved,
@@ -5738,6 +5751,7 @@ enum EnumDeploymentReviewState {
   rejected,
   $unknown
 }
+
 enum EnumDeploymentState {
   @JsonValue('ABANDONED')
   abandoned,
@@ -5761,6 +5775,7 @@ enum EnumDeploymentState {
   waiting,
   $unknown
 }
+
 enum EnumDeploymentStatusState {
   @JsonValue('ERROR')
   error,
@@ -5780,6 +5795,7 @@ enum EnumDeploymentStatusState {
   waiting,
   $unknown
 }
+
 enum EnumDiffSide {
   @JsonValue('LEFT')
   left,
@@ -5787,6 +5803,7 @@ enum EnumDiffSide {
   right,
   $unknown
 }
+
 enum EnumDiscussionOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -5794,6 +5811,7 @@ enum EnumDiscussionOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumDismissReason {
   @JsonValue('FIX_STARTED')
   fixStarted,
@@ -5807,11 +5825,13 @@ enum EnumDismissReason {
   tolerableRisk,
   $unknown
 }
+
 enum EnumEnterpriseAdministratorInvitationOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumEnterpriseAdministratorRole {
   @JsonValue('BILLING_MANAGER')
   billingManager,
@@ -5819,6 +5839,7 @@ enum EnumEnterpriseAdministratorRole {
   owner,
   $unknown
 }
+
 enum EnumEnterpriseDefaultRepositoryPermissionSettingValue {
   @JsonValue('ADMIN')
   admin,
@@ -5832,6 +5853,7 @@ enum EnumEnterpriseDefaultRepositoryPermissionSettingValue {
   write,
   $unknown
 }
+
 enum EnumEnterpriseEnabledDisabledSettingValue {
   @JsonValue('DISABLED')
   disabled,
@@ -5841,6 +5863,7 @@ enum EnumEnterpriseEnabledDisabledSettingValue {
   noPolicy,
   $unknown
 }
+
 enum EnumEnterpriseEnabledSettingValue {
   @JsonValue('ENABLED')
   enabled,
@@ -5848,6 +5871,7 @@ enum EnumEnterpriseEnabledSettingValue {
   noPolicy,
   $unknown
 }
+
 enum EnumEnterpriseMemberOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -5855,6 +5879,7 @@ enum EnumEnterpriseMemberOrderField {
   login,
   $unknown
 }
+
 enum EnumEnterpriseMembersCanCreateRepositoriesSettingValue {
   @JsonValue('ALL')
   all,
@@ -5868,6 +5893,7 @@ enum EnumEnterpriseMembersCanCreateRepositoriesSettingValue {
   public,
   $unknown
 }
+
 enum EnumEnterpriseMembersCanMakePurchasesSettingValue {
   @JsonValue('DISABLED')
   disabled,
@@ -5875,6 +5901,7 @@ enum EnumEnterpriseMembersCanMakePurchasesSettingValue {
   enabled,
   $unknown
 }
+
 enum EnumEnterpriseServerInstallationOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -5884,11 +5911,13 @@ enum EnumEnterpriseServerInstallationOrderField {
   hostName,
   $unknown
 }
+
 enum EnumEnterpriseServerUserAccountEmailOrderField {
   @JsonValue('EMAIL')
   email,
   $unknown
 }
+
 enum EnumEnterpriseServerUserAccountOrderField {
   @JsonValue('LOGIN')
   login,
@@ -5896,11 +5925,13 @@ enum EnumEnterpriseServerUserAccountOrderField {
   remoteCreatedAt,
   $unknown
 }
+
 enum EnumEnterpriseServerUserAccountsUploadOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumEnterpriseServerUserAccountsUploadSyncState {
   @JsonValue('FAILURE')
   failure,
@@ -5910,6 +5941,7 @@ enum EnumEnterpriseServerUserAccountsUploadSyncState {
   success,
   $unknown
 }
+
 enum EnumEnterpriseUserAccountMembershipRole {
   @JsonValue('MEMBER')
   member,
@@ -5917,6 +5949,7 @@ enum EnumEnterpriseUserAccountMembershipRole {
   owner,
   $unknown
 }
+
 enum EnumEnterpriseUserDeployment {
   @JsonValue('CLOUD')
   cloud,
@@ -5924,6 +5957,7 @@ enum EnumEnterpriseUserDeployment {
   server,
   $unknown
 }
+
 enum EnumFileViewedState {
   @JsonValue('DISMISSED')
   dismissed,
@@ -5933,6 +5967,7 @@ enum EnumFileViewedState {
   viewed,
   $unknown
 }
+
 enum EnumFundingPlatform {
   @JsonValue('COMMUNITY_BRIDGE')
   communityBridge,
@@ -5958,6 +5993,7 @@ enum EnumFundingPlatform {
   tidelift,
   $unknown
 }
+
 enum EnumGistOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -5967,6 +6003,7 @@ enum EnumGistOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumGistPrivacy {
   @JsonValue('ALL')
   all,
@@ -5976,6 +6013,7 @@ enum EnumGistPrivacy {
   secret,
   $unknown
 }
+
 enum EnumGitSignatureState {
   @JsonValue('BAD_CERT')
   badCert,
@@ -6013,6 +6051,7 @@ enum EnumGitSignatureState {
   valid,
   $unknown
 }
+
 enum EnumIdentityProviderConfigurationState {
   @JsonValue('CONFIGURED')
   configured,
@@ -6022,6 +6061,7 @@ enum EnumIdentityProviderConfigurationState {
   unconfigured,
   $unknown
 }
+
 enum EnumIpAllowListEnabledSettingValue {
   @JsonValue('DISABLED')
   disabled,
@@ -6029,6 +6069,7 @@ enum EnumIpAllowListEnabledSettingValue {
   enabled,
   $unknown
 }
+
 enum EnumIpAllowListEntryOrderField {
   @JsonValue('ALLOW_LIST_VALUE')
   allowListValue,
@@ -6036,6 +6077,7 @@ enum EnumIpAllowListEntryOrderField {
   createdAt,
   $unknown
 }
+
 enum EnumIpAllowListForInstalledAppsEnabledSettingValue {
   @JsonValue('DISABLED')
   disabled,
@@ -6043,11 +6085,13 @@ enum EnumIpAllowListForInstalledAppsEnabledSettingValue {
   enabled,
   $unknown
 }
+
 enum EnumIssueCommentOrderField {
   @JsonValue('UPDATED_AT')
   updatedAt,
   $unknown
 }
+
 enum EnumIssueOrderField {
   @JsonValue('COMMENTS')
   comments,
@@ -6057,6 +6101,7 @@ enum EnumIssueOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumIssueState {
   @JsonValue('CLOSED')
   closed,
@@ -6064,6 +6109,7 @@ enum EnumIssueState {
   open,
   $unknown
 }
+
 enum EnumIssueTimelineItemsItemType {
   @JsonValue('ADDED_TO_PROJECT_EVENT')
   addedToProjectEvent,
@@ -6129,6 +6175,7 @@ enum EnumIssueTimelineItemsItemType {
   userBlockedEvent,
   $unknown
 }
+
 enum EnumLabelOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -6136,11 +6183,13 @@ enum EnumLabelOrderField {
   name,
   $unknown
 }
+
 enum EnumLanguageOrderField {
   @JsonValue('SIZE')
   size,
   $unknown
 }
+
 enum EnumLockReason {
   @JsonValue('OFF_TOPIC')
   offTopic,
@@ -6152,6 +6201,7 @@ enum EnumLockReason {
   tooHeated,
   $unknown
 }
+
 enum EnumMergeStateStatus {
   @JsonValue('BEHIND')
   behind,
@@ -6171,6 +6221,7 @@ enum EnumMergeStateStatus {
   unstable,
   $unknown
 }
+
 enum EnumMergeableState {
   @JsonValue('CONFLICTING')
   conflicting,
@@ -6180,6 +6231,7 @@ enum EnumMergeableState {
   unknown,
   $unknown
 }
+
 enum EnumMilestoneOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -6191,6 +6243,7 @@ enum EnumMilestoneOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumMilestoneState {
   @JsonValue('CLOSED')
   closed,
@@ -6198,6 +6251,7 @@ enum EnumMilestoneState {
   open,
   $unknown
 }
+
 enum EnumNotificationRestrictionSettingValue {
   @JsonValue('DISABLED')
   disabled,
@@ -6205,11 +6259,13 @@ enum EnumNotificationRestrictionSettingValue {
   enabled,
   $unknown
 }
+
 enum EnumOIDCProviderType {
   @JsonValue('AAD')
   aad,
   $unknown
 }
+
 enum EnumOauthApplicationCreateAuditEntryState {
   @JsonValue('ACTIVE')
   active,
@@ -6219,6 +6275,7 @@ enum EnumOauthApplicationCreateAuditEntryState {
   suspended,
   $unknown
 }
+
 enum EnumOperationType {
   @JsonValue('ACCESS')
   access,
@@ -6236,6 +6293,7 @@ enum EnumOperationType {
   transfer,
   $unknown
 }
+
 enum EnumOrderDirection {
   @JsonValue('ASC')
   asc,
@@ -6243,6 +6301,7 @@ enum EnumOrderDirection {
   desc,
   $unknown
 }
+
 enum EnumOrgAddMemberAuditEntryPermission {
   @JsonValue('ADMIN')
   admin,
@@ -6250,6 +6309,7 @@ enum EnumOrgAddMemberAuditEntryPermission {
   read,
   $unknown
 }
+
 enum EnumOrgCreateAuditEntryBillingPlan {
   @JsonValue('BUSINESS')
   business,
@@ -6263,11 +6323,13 @@ enum EnumOrgCreateAuditEntryBillingPlan {
   unlimited,
   $unknown
 }
+
 enum EnumOrgEnterpriseOwnerOrderField {
   @JsonValue('LOGIN')
   login,
   $unknown
 }
+
 enum EnumOrgRemoveBillingManagerAuditEntryReason {
   @JsonValue('SAML_EXTERNAL_IDENTITY_MISSING')
   samlExternalIdentityMissing,
@@ -6277,6 +6339,7 @@ enum EnumOrgRemoveBillingManagerAuditEntryReason {
   twoFactorRequirementNonCompliance,
   $unknown
 }
+
 enum EnumOrgRemoveMemberAuditEntryMembershipType {
   @JsonValue('ADMIN')
   admin,
@@ -6290,6 +6353,7 @@ enum EnumOrgRemoveMemberAuditEntryMembershipType {
   unaffiliated,
   $unknown
 }
+
 enum EnumOrgRemoveMemberAuditEntryReason {
   @JsonValue('SAML_EXTERNAL_IDENTITY_MISSING')
   samlExternalIdentityMissing,
@@ -6303,6 +6367,7 @@ enum EnumOrgRemoveMemberAuditEntryReason {
   userAccountDeleted,
   $unknown
 }
+
 enum EnumOrgRemoveOutsideCollaboratorAuditEntryMembershipType {
   @JsonValue('BILLING_MANAGER')
   billingManager,
@@ -6312,6 +6377,7 @@ enum EnumOrgRemoveOutsideCollaboratorAuditEntryMembershipType {
   unaffiliated,
   $unknown
 }
+
 enum EnumOrgRemoveOutsideCollaboratorAuditEntryReason {
   @JsonValue('SAML_EXTERNAL_IDENTITY_MISSING')
   samlExternalIdentityMissing,
@@ -6319,6 +6385,7 @@ enum EnumOrgRemoveOutsideCollaboratorAuditEntryReason {
   twoFactorRequirementNonCompliance,
   $unknown
 }
+
 enum EnumOrgUpdateDefaultRepositoryPermissionAuditEntryPermission {
   @JsonValue('ADMIN')
   admin,
@@ -6330,6 +6397,7 @@ enum EnumOrgUpdateDefaultRepositoryPermissionAuditEntryPermission {
   write,
   $unknown
 }
+
 enum EnumOrgUpdateMemberAuditEntryPermission {
   @JsonValue('ADMIN')
   admin,
@@ -6337,6 +6405,7 @@ enum EnumOrgUpdateMemberAuditEntryPermission {
   read,
   $unknown
 }
+
 enum EnumOrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility {
   @JsonValue('ALL')
   all,
@@ -6356,6 +6425,7 @@ enum EnumOrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility {
   publicPrivate,
   $unknown
 }
+
 enum EnumOrganizationInvitationRole {
   @JsonValue('ADMIN')
   admin,
@@ -6367,6 +6437,7 @@ enum EnumOrganizationInvitationRole {
   reinstate,
   $unknown
 }
+
 enum EnumOrganizationInvitationType {
   @JsonValue('EMAIL')
   email,
@@ -6374,6 +6445,7 @@ enum EnumOrganizationInvitationType {
   user,
   $unknown
 }
+
 enum EnumOrganizationMemberRole {
   @JsonValue('ADMIN')
   admin,
@@ -6381,6 +6453,7 @@ enum EnumOrganizationMemberRole {
   member,
   $unknown
 }
+
 enum EnumOrganizationMembersCanCreateRepositoriesSettingValue {
   @JsonValue('ALL')
   all,
@@ -6392,6 +6465,7 @@ enum EnumOrganizationMembersCanCreateRepositoriesSettingValue {
   private,
   $unknown
 }
+
 enum EnumOrganizationOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -6399,16 +6473,19 @@ enum EnumOrganizationOrderField {
   login,
   $unknown
 }
+
 enum EnumPackageFileOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumPackageOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumPackageType {
   @JsonValue('DEBIAN')
   debian,
@@ -6426,11 +6503,13 @@ enum EnumPackageType {
   rubygems,
   $unknown
 }
+
 enum EnumPackageVersionOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumPinnableItemType {
   @JsonValue('GIST')
   gist,
@@ -6450,6 +6529,7 @@ enum EnumPinnableItemType {
   user,
   $unknown
 }
+
 enum EnumPinnedDiscussionGradient {
   @JsonValue('BLUE_MINT')
   blueMint,
@@ -6463,6 +6543,7 @@ enum EnumPinnedDiscussionGradient {
   redOrange,
   $unknown
 }
+
 enum EnumPinnedDiscussionPattern {
   @JsonValue('CHEVRON_UP')
   chevronUp,
@@ -6478,6 +6559,7 @@ enum EnumPinnedDiscussionPattern {
   zap,
   $unknown
 }
+
 enum EnumProjectCardArchivedState {
   @JsonValue('ARCHIVED')
   archived,
@@ -6485,6 +6567,7 @@ enum EnumProjectCardArchivedState {
   notArchived,
   $unknown
 }
+
 enum EnumProjectCardState {
   @JsonValue('CONTENT_ONLY')
   contentOnly,
@@ -6494,6 +6577,7 @@ enum EnumProjectCardState {
   redacted,
   $unknown
 }
+
 enum EnumProjectColumnPurpose {
   @JsonValue('DONE')
   done,
@@ -6503,6 +6587,7 @@ enum EnumProjectColumnPurpose {
   todo,
   $unknown
 }
+
 enum EnumProjectNextOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -6514,6 +6599,7 @@ enum EnumProjectNextOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumProjectOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -6523,6 +6609,7 @@ enum EnumProjectOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumProjectState {
   @JsonValue('CLOSED')
   closed,
@@ -6530,6 +6617,7 @@ enum EnumProjectState {
   open,
   $unknown
 }
+
 enum EnumProjectTemplate {
   @JsonValue('AUTOMATED_KANBAN_V2')
   automatedKanbanV2,
@@ -6541,6 +6629,7 @@ enum EnumProjectTemplate {
   bugTriage,
   $unknown
 }
+
 enum EnumPullRequestMergeMethod {
   @JsonValue('MERGE')
   merge,
@@ -6550,6 +6639,7 @@ enum EnumPullRequestMergeMethod {
   squash,
   $unknown
 }
+
 enum EnumPullRequestOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -6557,6 +6647,7 @@ enum EnumPullRequestOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumPullRequestReviewCommentState {
   @JsonValue('PENDING')
   pending,
@@ -6564,6 +6655,7 @@ enum EnumPullRequestReviewCommentState {
   submitted,
   $unknown
 }
+
 enum EnumPullRequestReviewDecision {
   @JsonValue('APPROVED')
   approved,
@@ -6573,6 +6665,7 @@ enum EnumPullRequestReviewDecision {
   reviewRequired,
   $unknown
 }
+
 enum EnumPullRequestReviewEvent {
   @JsonValue('APPROVE')
   approve,
@@ -6584,6 +6677,7 @@ enum EnumPullRequestReviewEvent {
   requestChanges,
   $unknown
 }
+
 enum EnumPullRequestReviewState {
   @JsonValue('APPROVED')
   approved,
@@ -6597,6 +6691,7 @@ enum EnumPullRequestReviewState {
   pending,
   $unknown
 }
+
 enum EnumPullRequestState {
   @JsonValue('CLOSED')
   closed,
@@ -6606,6 +6701,7 @@ enum EnumPullRequestState {
   open,
   $unknown
 }
+
 enum EnumPullRequestTimelineItemsItemType {
   @JsonValue('ADDED_TO_MERGE_QUEUE_EVENT')
   addedToMergeQueueEvent,
@@ -6725,6 +6821,7 @@ enum EnumPullRequestTimelineItemsItemType {
   userBlockedEvent,
   $unknown
 }
+
 enum EnumPullRequestUpdateState {
   @JsonValue('CLOSED')
   closed,
@@ -6732,6 +6829,7 @@ enum EnumPullRequestUpdateState {
   open,
   $unknown
 }
+
 enum EnumReactionContent {
   @JsonValue('CONFUSED')
   confused,
@@ -6751,11 +6849,13 @@ enum EnumReactionContent {
   thumbsUp,
   $unknown
 }
+
 enum EnumReactionOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumRefOrderField {
   @JsonValue('ALPHABETICAL')
   alphabetical,
@@ -6763,6 +6863,7 @@ enum EnumRefOrderField {
   tagCommitDate,
   $unknown
 }
+
 enum EnumReleaseOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -6770,6 +6871,7 @@ enum EnumReleaseOrderField {
   name,
   $unknown
 }
+
 enum EnumRepoAccessAuditEntryVisibility {
   @JsonValue('INTERNAL')
   internal,
@@ -6779,6 +6881,7 @@ enum EnumRepoAccessAuditEntryVisibility {
   public,
   $unknown
 }
+
 enum EnumRepoAddMemberAuditEntryVisibility {
   @JsonValue('INTERNAL')
   internal,
@@ -6788,6 +6891,7 @@ enum EnumRepoAddMemberAuditEntryVisibility {
   public,
   $unknown
 }
+
 enum EnumRepoArchivedAuditEntryVisibility {
   @JsonValue('INTERNAL')
   internal,
@@ -6797,6 +6901,7 @@ enum EnumRepoArchivedAuditEntryVisibility {
   public,
   $unknown
 }
+
 enum EnumRepoChangeMergeSettingAuditEntryMergeType {
   @JsonValue('MERGE')
   merge,
@@ -6806,6 +6911,7 @@ enum EnumRepoChangeMergeSettingAuditEntryMergeType {
   squash,
   $unknown
 }
+
 enum EnumRepoCreateAuditEntryVisibility {
   @JsonValue('INTERNAL')
   internal,
@@ -6815,6 +6921,7 @@ enum EnumRepoCreateAuditEntryVisibility {
   public,
   $unknown
 }
+
 enum EnumRepoDestroyAuditEntryVisibility {
   @JsonValue('INTERNAL')
   internal,
@@ -6824,6 +6931,7 @@ enum EnumRepoDestroyAuditEntryVisibility {
   public,
   $unknown
 }
+
 enum EnumRepoRemoveMemberAuditEntryVisibility {
   @JsonValue('INTERNAL')
   internal,
@@ -6833,6 +6941,7 @@ enum EnumRepoRemoveMemberAuditEntryVisibility {
   public,
   $unknown
 }
+
 enum EnumReportedContentClassifiers {
   @JsonValue('ABUSE')
   abuse,
@@ -6848,6 +6957,7 @@ enum EnumReportedContentClassifiers {
   spam,
   $unknown
 }
+
 enum EnumRepositoryAffiliation {
   @JsonValue('COLLABORATOR')
   collaborator,
@@ -6857,6 +6967,7 @@ enum EnumRepositoryAffiliation {
   owner,
   $unknown
 }
+
 enum EnumRepositoryContributionType {
   @JsonValue('COMMIT')
   commit,
@@ -6870,6 +6981,7 @@ enum EnumRepositoryContributionType {
   repository,
   $unknown
 }
+
 enum EnumRepositoryInteractionLimit {
   @JsonValue('COLLABORATORS_ONLY')
   collaboratorsOnly,
@@ -6881,6 +6993,7 @@ enum EnumRepositoryInteractionLimit {
   noLimit,
   $unknown
 }
+
 enum EnumRepositoryInteractionLimitExpiry {
   @JsonValue('ONE_DAY')
   oneDay,
@@ -6894,6 +7007,7 @@ enum EnumRepositoryInteractionLimitExpiry {
   threeDays,
   $unknown
 }
+
 enum EnumRepositoryInteractionLimitOrigin {
   @JsonValue('ORGANIZATION')
   organization,
@@ -6903,6 +7017,7 @@ enum EnumRepositoryInteractionLimitOrigin {
   user,
   $unknown
 }
+
 enum EnumRepositoryInvitationOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -6910,6 +7025,7 @@ enum EnumRepositoryInvitationOrderField {
   inviteeLogin,
   $unknown
 }
+
 enum EnumRepositoryLockReason {
   @JsonValue('BILLING')
   billing,
@@ -6921,6 +7037,7 @@ enum EnumRepositoryLockReason {
   rename,
   $unknown
 }
+
 enum EnumRepositoryOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -6934,6 +7051,7 @@ enum EnumRepositoryOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumRepositoryPermission {
   @JsonValue('ADMIN')
   admin,
@@ -6947,6 +7065,7 @@ enum EnumRepositoryPermission {
   write,
   $unknown
 }
+
 enum EnumRepositoryPrivacy {
   @JsonValue('PRIVATE')
   private,
@@ -6954,6 +7073,7 @@ enum EnumRepositoryPrivacy {
   public,
   $unknown
 }
+
 enum EnumRepositoryVisibility {
   @JsonValue('INTERNAL')
   internal,
@@ -6963,6 +7083,7 @@ enum EnumRepositoryVisibility {
   public,
   $unknown
 }
+
 enum EnumRequestableCheckStatusState {
   @JsonValue('COMPLETED')
   completed,
@@ -6976,6 +7097,7 @@ enum EnumRequestableCheckStatusState {
   waiting,
   $unknown
 }
+
 enum EnumRoleInOrganization {
   @JsonValue('DIRECT_MEMBER')
   directMember,
@@ -6985,6 +7107,7 @@ enum EnumRoleInOrganization {
   unaffiliated,
   $unknown
 }
+
 enum EnumSamlDigestAlgorithm {
   @JsonValue('SHA1')
   sha1,
@@ -6996,6 +7119,7 @@ enum EnumSamlDigestAlgorithm {
   sha512,
   $unknown
 }
+
 enum EnumSamlSignatureAlgorithm {
   @JsonValue('RSA_SHA1')
   rsaSha1,
@@ -7007,11 +7131,13 @@ enum EnumSamlSignatureAlgorithm {
   rsaSha512,
   $unknown
 }
+
 enum EnumSavedReplyOrderField {
   @JsonValue('UPDATED_AT')
   updatedAt,
   $unknown
 }
+
 enum EnumSearchType {
   @JsonValue('DISCUSSION')
   discussion,
@@ -7023,6 +7149,7 @@ enum EnumSearchType {
   user,
   $unknown
 }
+
 enum EnumSecurityAdvisoryEcosystem {
   @JsonValue('COMPOSER')
   composer,
@@ -7042,6 +7169,7 @@ enum EnumSecurityAdvisoryEcosystem {
   rust,
   $unknown
 }
+
 enum EnumSecurityAdvisoryIdentifierType {
   @JsonValue('CVE')
   cve,
@@ -7049,6 +7177,7 @@ enum EnumSecurityAdvisoryIdentifierType {
   ghsa,
   $unknown
 }
+
 enum EnumSecurityAdvisoryOrderField {
   @JsonValue('PUBLISHED_AT')
   publishedAt,
@@ -7056,6 +7185,7 @@ enum EnumSecurityAdvisoryOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumSecurityAdvisorySeverity {
   @JsonValue('CRITICAL')
   critical,
@@ -7067,11 +7197,13 @@ enum EnumSecurityAdvisorySeverity {
   moderate,
   $unknown
 }
+
 enum EnumSecurityVulnerabilityOrderField {
   @JsonValue('UPDATED_AT')
   updatedAt,
   $unknown
 }
+
 enum EnumSponsorOrderField {
   @JsonValue('LOGIN')
   login,
@@ -7079,11 +7211,13 @@ enum EnumSponsorOrderField {
   relevance,
   $unknown
 }
+
 enum EnumSponsorableOrderField {
   @JsonValue('LOGIN')
   login,
   $unknown
 }
+
 enum EnumSponsorsActivityAction {
   @JsonValue('CANCELLED_SPONSORSHIP')
   cancelledSponsorship,
@@ -7099,11 +7233,13 @@ enum EnumSponsorsActivityAction {
   tierChange,
   $unknown
 }
+
 enum EnumSponsorsActivityOrderField {
   @JsonValue('TIMESTAMP')
   timestamp,
   $unknown
 }
+
 enum EnumSponsorsActivityPeriod {
   @JsonValue('ALL')
   all,
@@ -7115,6 +7251,7 @@ enum EnumSponsorsActivityPeriod {
   week,
   $unknown
 }
+
 enum EnumSponsorsGoalKind {
   @JsonValue('MONTHLY_SPONSORSHIP_AMOUNT')
   monthlySponsorshipAmount,
@@ -7122,6 +7259,7 @@ enum EnumSponsorsGoalKind {
   totalSponsorsCount,
   $unknown
 }
+
 enum EnumSponsorsTierOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -7129,16 +7267,19 @@ enum EnumSponsorsTierOrderField {
   monthlyPriceInCents,
   $unknown
 }
+
 enum EnumSponsorshipNewsletterOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumSponsorshipOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumSponsorshipPrivacy {
   @JsonValue('PRIVATE')
   private,
@@ -7146,11 +7287,13 @@ enum EnumSponsorshipPrivacy {
   public,
   $unknown
 }
+
 enum EnumStarOrderField {
   @JsonValue('STARRED_AT')
   starredAt,
   $unknown
 }
+
 enum EnumStatusState {
   @JsonValue('ERROR')
   error,
@@ -7164,6 +7307,7 @@ enum EnumStatusState {
   success,
   $unknown
 }
+
 enum EnumSubscriptionState {
   @JsonValue('IGNORED')
   ignored,
@@ -7173,16 +7317,19 @@ enum EnumSubscriptionState {
   unsubscribed,
   $unknown
 }
+
 enum EnumTeamDiscussionCommentOrderField {
   @JsonValue('NUMBER')
   number,
   $unknown
 }
+
 enum EnumTeamDiscussionOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
   $unknown
 }
+
 enum EnumTeamMemberOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -7190,6 +7337,7 @@ enum EnumTeamMemberOrderField {
   login,
   $unknown
 }
+
 enum EnumTeamMemberRole {
   @JsonValue('MAINTAINER')
   maintainer,
@@ -7197,6 +7345,7 @@ enum EnumTeamMemberRole {
   member,
   $unknown
 }
+
 enum EnumTeamMembershipType {
   @JsonValue('ALL')
   all,
@@ -7206,11 +7355,13 @@ enum EnumTeamMembershipType {
   immediate,
   $unknown
 }
+
 enum EnumTeamOrderField {
   @JsonValue('NAME')
   name,
   $unknown
 }
+
 enum EnumTeamPrivacy {
   @JsonValue('SECRET')
   secret,
@@ -7218,6 +7369,7 @@ enum EnumTeamPrivacy {
   visible,
   $unknown
 }
+
 enum EnumTeamRepositoryOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -7233,6 +7385,7 @@ enum EnumTeamRepositoryOrderField {
   updatedAt,
   $unknown
 }
+
 enum EnumTeamReviewAssignmentAlgorithm {
   @JsonValue('LOAD_BALANCE')
   loadBalance,
@@ -7240,6 +7393,7 @@ enum EnumTeamReviewAssignmentAlgorithm {
   roundRobin,
   $unknown
 }
+
 enum EnumTeamRole {
   @JsonValue('ADMIN')
   admin,
@@ -7247,6 +7401,7 @@ enum EnumTeamRole {
   member,
   $unknown
 }
+
 enum EnumTopicSuggestionDeclineReason {
   @JsonValue('NOT_RELEVANT')
   notRelevant,
@@ -7258,6 +7413,7 @@ enum EnumTopicSuggestionDeclineReason {
   tooSpecific,
   $unknown
 }
+
 enum EnumUserBlockDuration {
   @JsonValue('ONE_DAY')
   oneDay,
@@ -7271,11 +7427,13 @@ enum EnumUserBlockDuration {
   threeDays,
   $unknown
 }
+
 enum EnumUserStatusOrderField {
   @JsonValue('UPDATED_AT')
   updatedAt,
   $unknown
 }
+
 enum EnumVerifiableDomainOrderField {
   @JsonValue('CREATED_AT')
   createdAt,
@@ -7283,6 +7441,7 @@ enum EnumVerifiableDomainOrderField {
   domain,
   $unknown
 }
+
 const POSSIBLE_TYPES_MAP = const {
   'Node': {
     'AddedToProjectEvent',
