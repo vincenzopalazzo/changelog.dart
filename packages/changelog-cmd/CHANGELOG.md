@@ -1,3 +1,9 @@
+# v0.0.1-beta.4
+
+## Added
+- add semver v2 proposal for generating changelog ([commit](https://github.com/vincenzopalazzo/changelog.dart/commit/d85ad89b31c960680cac0cfda361b44fb66f878f)). @vincenzopalazzo 13-07-2022
+
+
 # v0.0.1-beta.3
 
 ## Added

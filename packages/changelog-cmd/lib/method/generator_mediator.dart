@@ -6,12 +6,14 @@ import 'package:changelog_cmd/config/config_model.dart';
 import 'package:changelog_cmd/method/header_msg.dart';
 import 'package:changelog_cmd/method/metadata_msg.dart';
 import 'package:changelog_cmd/method/method_generation.dart';
+import 'package:changelog_cmd/method/semver_v2_msg.dart';
 import 'package:changelog_lib/changelog_lib.dart';
 
 class GeneratorMediator {
   final Map<String, MethodGenerator> _methods = {
     "header": HeaderGenerator(),
     "metadata": MetadataGenerator(),
+    "semver-v2": SemVerV2Generator(),
   };
 
   /// Check if inside the map there is a method generator with the name provided
