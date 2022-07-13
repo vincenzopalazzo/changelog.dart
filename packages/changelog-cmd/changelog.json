@@ -1,6 +1,6 @@
 {
   "package_name": "changelog_cmd",
-  "version": "v0.0.1-beta.4",
+  "version": "v0.0.1",
   "api": {
     "name": "github",
     "repository": "vincenzopalazzo/changelog.dart",
