@@ -3,7 +3,7 @@ CC_TEST=PATH="$(PATH)":"$(HOME)/.pub-cache/bin" spec
 PACKAGE=
 TYPE=
 
-default: check
+default: fmt check
 
 dep:
 	dart pub global activate melos;
