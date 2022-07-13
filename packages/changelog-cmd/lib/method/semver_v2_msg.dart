@@ -24,13 +24,13 @@ class SemVerV2Generator extends MethodGenerator {
     generator.addFilterRule(
         rule: FilterRule(headerExactMatch: "fix:", nameSection: "Fixed"));
     generator.addFilterRule(
-        rule:
-            FilterRule(headerExactMatch: "feat:", nameSection: "Added"));
+        rule: FilterRule(headerExactMatch: "feat:", nameSection: "Added"));
     generator.addFilterRule(
         rule: FilterRule(headerExactMatch: "doc:", nameSection: "Docs"));
 
     generator.addFilterRule(
-        rule: FilterRule(headerExactMatch: "deprecate:", nameSection: "Deprecated"));
+        rule: FilterRule(
+            headerExactMatch: "deprecate:", nameSection: "Deprecated"));
 
     generator.addFilterRule(
         rule: FilterRule(headerExactMatch: "remove:", nameSection: "Removed"));

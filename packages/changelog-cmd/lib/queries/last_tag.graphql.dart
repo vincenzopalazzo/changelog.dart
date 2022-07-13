@@ -3,37 +3,90 @@ import 'package:graphql/client.dart' as graphql;
 import 'package:json_annotation/json_annotation.dart';
 part 'last_tag.graphql.g.dart';
 
-@JsonSerializable()
-class VariablesQueryGetLastTag extends JsonSerializable {
-  VariablesQueryGetLastTag({required this.owner, required this.name});
+@JsonSerializable(explicitToJson: true)
+class Variables$Query$GetLastTag {
+  Variables$Query$GetLastTag({required this.owner, required this.name});
 
   @override
-  factory VariablesQueryGetLastTag.fromJson(Map<String, dynamic> json) =>
-      _$VariablesQueryGetLastTagFromJson(json);
+  factory Variables$Query$GetLastTag.fromJson(Map<String, dynamic> json) =>
+      _$Variables$Query$GetLastTagFromJson(json);
 
   final String owner;
 
   final String name;
 
+  Map<String, dynamic> toJson() => _$Variables$Query$GetLastTagToJson(this);
+  int get hashCode {
+    final l$owner = owner;
+    final l$name = name;
+    return Object.hashAll([l$owner, l$name]);
+  }
+
   @override
-  Map<String, dynamic> toJson() => _$VariablesQueryGetLastTagToJson(this);
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is Variables$Query$GetLastTag) ||
+        runtimeType != other.runtimeType) return false;
+    final l$owner = owner;
+    final lOther$owner = other.owner;
+    if (l$owner != lOther$owner) return false;
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) return false;
+    return true;
+  }
+
+  Variables$Query$GetLastTag copyWith({String? owner, String? name}) =>
+      Variables$Query$GetLastTag(
+          owner: owner == null ? this.owner : owner,
+          name: name == null ? this.name : name);
 }
 
-@JsonSerializable()
-class QueryGetLastTag extends JsonSerializable {
-  QueryGetLastTag({this.repository});
+@JsonSerializable(explicitToJson: true)
+class Query$GetLastTag {
+  Query$GetLastTag({this.repository, required this.$__typename});
 
   @override
-  factory QueryGetLastTag.fromJson(Map<String, dynamic> json) =>
-      _$QueryGetLastTagFromJson(json);
+  factory Query$GetLastTag.fromJson(Map<String, dynamic> json) =>
+      _$Query$GetLastTagFromJson(json);
 
-  final QueryGetLastTag$repository? repository;
+  final Query$GetLastTag$repository? repository;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
+  Map<String, dynamic> toJson() => _$Query$GetLastTagToJson(this);
+  int get hashCode {
+    final l$repository = repository;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$repository, l$$__typename]);
+  }
 
   @override
-  Map<String, dynamic> toJson() => _$QueryGetLastTagToJson(this);
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is Query$GetLastTag) || runtimeType != other.runtimeType)
+      return false;
+    final l$repository = repository;
+    final lOther$repository = other.repository;
+    if (l$repository != lOther$repository) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
-const QUERY_GET_LAST_TAG = const DocumentNode(definitions: [
+extension UtilityExtension$Query$GetLastTag on Query$GetLastTag {
+  Query$GetLastTag copyWith(
+          {Query$GetLastTag$repository? Function()? repository,
+          String? $__typename}) =>
+      Query$GetLastTag(
+          repository: repository == null ? this.repository : repository(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+const documentNodeQueryGetLastTag = DocumentNode(definitions: [
   OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'GetLastTag'),
@@ -136,11 +189,13 @@ const QUERY_GET_LAST_TAG = const DocumentNode(definitions: [
             selectionSet: null)
       ])),
 ]);
+Query$GetLastTag _parserFn$Query$GetLastTag(Map<String, dynamic> data) =>
+    Query$GetLastTag.fromJson(data);
 
-class GQLOptionsQueryGetLastTag extends graphql.QueryOptions<QueryGetLastTag> {
-  GQLOptionsQueryGetLastTag(
+class Options$Query$GetLastTag extends graphql.QueryOptions<Query$GetLastTag> {
+  Options$Query$GetLastTag(
       {String? operationName,
-      required VariablesQueryGetLastTag variables,
+      required Variables$Query$GetLastTag variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -156,15 +211,15 @@ class GQLOptionsQueryGetLastTag extends graphql.QueryOptions<QueryGetLastTag> {
             optimisticResult: optimisticResult,
             pollInterval: pollInterval,
             context: context,
-            document: QUERY_GET_LAST_TAG,
-            parserFn: (data) => QueryGetLastTag.fromJson(data));
+            document: documentNodeQueryGetLastTag,
+            parserFn: _parserFn$Query$GetLastTag);
 }
 
-class GQLWatchOptionsQueryGetLastTag
-    extends graphql.WatchQueryOptions<QueryGetLastTag> {
-  GQLWatchOptionsQueryGetLastTag(
+class WatchOptions$Query$GetLastTag
+    extends graphql.WatchQueryOptions<Query$GetLastTag> {
+  WatchOptions$Query$GetLastTag(
       {String? operationName,
-      required VariablesQueryGetLastTag variables,
+      required Variables$Query$GetLastTag variables,
       graphql.FetchPolicy? fetchPolicy,
       graphql.ErrorPolicy? errorPolicy,
       graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -182,94 +237,259 @@ class GQLWatchOptionsQueryGetLastTag
             cacheRereadPolicy: cacheRereadPolicy,
             optimisticResult: optimisticResult,
             context: context,
-            document: QUERY_GET_LAST_TAG,
+            document: documentNodeQueryGetLastTag,
             pollInterval: pollInterval,
             eagerlyFetchResults: eagerlyFetchResults,
             carryForwardDataOnException: carryForwardDataOnException,
             fetchResults: fetchResults,
-            parserFn: (data) => QueryGetLastTag.fromJson(data));
+            parserFn: _parserFn$Query$GetLastTag);
 }
 
-class GQLFetchMoreOptionsQueryGetLastTag extends graphql.FetchMoreOptions {
-  GQLFetchMoreOptionsQueryGetLastTag(
+class FetchMoreOptions$Query$GetLastTag extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetLastTag(
       {required graphql.UpdateQuery updateQuery,
-      required VariablesQueryGetLastTag variables})
+      required Variables$Query$GetLastTag variables})
       : super(
             updateQuery: updateQuery,
             variables: variables.toJson(),
-            document: QUERY_GET_LAST_TAG);
+            document: documentNodeQueryGetLastTag);
 }
 
-extension GQLExtensionQueryGetLastTag on graphql.GraphQLClient {
-  Future<graphql.QueryResult<QueryGetLastTag>> queryGetLastTag(
-          GQLOptionsQueryGetLastTag options) async =>
+extension ClientExtension$Query$GetLastTag on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetLastTag>> query$GetLastTag(
+          Options$Query$GetLastTag options) async =>
       await this.query(options);
-  graphql.ObservableQuery<QueryGetLastTag> watchQueryGetLastTag(
-          GQLWatchOptionsQueryGetLastTag options) =>
+  graphql.ObservableQuery<Query$GetLastTag> watchQuery$GetLastTag(
+          WatchOptions$Query$GetLastTag options) =>
       this.watchQuery(options);
+  void writeQuery$GetLastTag(
+          {required Query$GetLastTag data,
+          required Variables$Query$GetLastTag variables,
+          bool broadcast = true}) =>
+      this.writeQuery(
+          graphql.Request(
+              operation:
+                  graphql.Operation(document: documentNodeQueryGetLastTag),
+              variables: variables.toJson()),
+          data: data.toJson(),
+          broadcast: broadcast);
+  Query$GetLastTag? readQuery$GetLastTag(
+      {required Variables$Query$GetLastTag variables, bool optimistic = true}) {
+    final result = this.readQuery(
+        graphql.Request(
+            operation: graphql.Operation(document: documentNodeQueryGetLastTag),
+            variables: variables.toJson()),
+        optimistic: optimistic);
+    return result == null ? null : Query$GetLastTag.fromJson(result);
+  }
 }
 
-@JsonSerializable()
-class QueryGetLastTag$repository extends JsonSerializable {
-  QueryGetLastTag$repository({required this.releases});
+@JsonSerializable(explicitToJson: true)
+class Query$GetLastTag$repository {
+  Query$GetLastTag$repository(
+      {required this.releases, required this.$__typename});
 
   @override
-  factory QueryGetLastTag$repository.fromJson(Map<String, dynamic> json) =>
-      _$QueryGetLastTag$repositoryFromJson(json);
+  factory Query$GetLastTag$repository.fromJson(Map<String, dynamic> json) =>
+      _$Query$GetLastTag$repositoryFromJson(json);
 
-  final QueryGetLastTag$repository$releases releases;
+  final Query$GetLastTag$repository$releases releases;
+
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
+  Map<String, dynamic> toJson() => _$Query$GetLastTag$repositoryToJson(this);
+  int get hashCode {
+    final l$releases = releases;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$releases, l$$__typename]);
+  }
 
   @override
-  Map<String, dynamic> toJson() => _$QueryGetLastTag$repositoryToJson(this);
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is Query$GetLastTag$repository) ||
+        runtimeType != other.runtimeType) return false;
+    final l$releases = releases;
+    final lOther$releases = other.releases;
+    if (l$releases != lOther$releases) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
-@JsonSerializable()
-class QueryGetLastTag$repository$releases extends JsonSerializable {
-  QueryGetLastTag$repository$releases({this.edges});
+extension UtilityExtension$Query$GetLastTag$repository
+    on Query$GetLastTag$repository {
+  Query$GetLastTag$repository copyWith(
+          {Query$GetLastTag$repository$releases? releases,
+          String? $__typename}) =>
+      Query$GetLastTag$repository(
+          releases: releases == null ? this.releases : releases,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
+class Query$GetLastTag$repository$releases {
+  Query$GetLastTag$repository$releases({this.edges, required this.$__typename});
 
   @override
-  factory QueryGetLastTag$repository$releases.fromJson(
+  factory Query$GetLastTag$repository$releases.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryGetLastTag$repository$releasesFromJson(json);
+      _$Query$GetLastTag$repository$releasesFromJson(json);
 
-  final List<QueryGetLastTag$repository$releases$edges?>? edges;
+  final List<Query$GetLastTag$repository$releases$edges?>? edges;
 
-  @override
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   Map<String, dynamic> toJson() =>
-      _$QueryGetLastTag$repository$releasesToJson(this);
+      _$Query$GetLastTag$repository$releasesToJson(this);
+  int get hashCode {
+    final l$edges = edges;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$edges == null ? null : Object.hashAll(l$edges.map((v) => v)),
+      l$$__typename
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is Query$GetLastTag$repository$releases) ||
+        runtimeType != other.runtimeType) return false;
+    final l$edges = edges;
+    final lOther$edges = other.edges;
+    if (l$edges != null && lOther$edges != null) {
+      if (l$edges.length != lOther$edges.length) return false;
+      for (int i = 0; i < l$edges.length; i++) {
+        final l$edges$entry = l$edges[i];
+        final lOther$edges$entry = lOther$edges[i];
+        if (l$edges$entry != lOther$edges$entry) return false;
+      }
+    } else if (l$edges != lOther$edges) {
+      return false;
+    }
+
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
 }
 
-@JsonSerializable()
-class QueryGetLastTag$repository$releases$edges extends JsonSerializable {
-  QueryGetLastTag$repository$releases$edges({this.node});
+extension UtilityExtension$Query$GetLastTag$repository$releases
+    on Query$GetLastTag$repository$releases {
+  Query$GetLastTag$repository$releases copyWith(
+          {List<Query$GetLastTag$repository$releases$edges?>? Function()? edges,
+          String? $__typename}) =>
+      Query$GetLastTag$repository$releases(
+          edges: edges == null ? this.edges : edges(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
+class Query$GetLastTag$repository$releases$edges {
+  Query$GetLastTag$repository$releases$edges(
+      {this.node, required this.$__typename});
 
   @override
-  factory QueryGetLastTag$repository$releases$edges.fromJson(
+  factory Query$GetLastTag$repository$releases$edges.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryGetLastTag$repository$releases$edgesFromJson(json);
+      _$Query$GetLastTag$repository$releases$edgesFromJson(json);
 
-  final QueryGetLastTag$repository$releases$edges$node? node;
+  final Query$GetLastTag$repository$releases$edges$node? node;
 
-  @override
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   Map<String, dynamic> toJson() =>
-      _$QueryGetLastTag$repository$releases$edgesToJson(this);
-}
-
-@JsonSerializable()
-class QueryGetLastTag$repository$releases$edges$node extends JsonSerializable {
-  QueryGetLastTag$repository$releases$edges$node(
-      {required this.tagName, required this.createdAt});
+      _$Query$GetLastTag$repository$releases$edgesToJson(this);
+  int get hashCode {
+    final l$node = node;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$node, l$$__typename]);
+  }
 
   @override
-  factory QueryGetLastTag$repository$releases$edges$node.fromJson(
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is Query$GetLastTag$repository$releases$edges) ||
+        runtimeType != other.runtimeType) return false;
+    final l$node = node;
+    final lOther$node = other.node;
+    if (l$node != lOther$node) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetLastTag$repository$releases$edges
+    on Query$GetLastTag$repository$releases$edges {
+  Query$GetLastTag$repository$releases$edges copyWith(
+          {Query$GetLastTag$repository$releases$edges$node? Function()? node,
+          String? $__typename}) =>
+      Query$GetLastTag$repository$releases$edges(
+          node: node == null ? this.node : node(),
+          $__typename: $__typename == null ? this.$__typename : $__typename);
+}
+
+@JsonSerializable(explicitToJson: true)
+class Query$GetLastTag$repository$releases$edges$node {
+  Query$GetLastTag$repository$releases$edges$node(
+      {required this.tagName,
+      required this.createdAt,
+      required this.$__typename});
+
+  @override
+  factory Query$GetLastTag$repository$releases$edges$node.fromJson(
           Map<String, dynamic> json) =>
-      _$QueryGetLastTag$repository$releases$edges$nodeFromJson(json);
+      _$Query$GetLastTag$repository$releases$edges$nodeFromJson(json);
 
   final String tagName;
 
   final String createdAt;
 
-  @override
+  @JsonKey(name: '__typename')
+  final String $__typename;
+
   Map<String, dynamic> toJson() =>
-      _$QueryGetLastTag$repository$releases$edges$nodeToJson(this);
+      _$Query$GetLastTag$repository$releases$edges$nodeToJson(this);
+  int get hashCode {
+    final l$tagName = tagName;
+    final l$createdAt = createdAt;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$tagName, l$createdAt, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (!(other is Query$GetLastTag$repository$releases$edges$node) ||
+        runtimeType != other.runtimeType) return false;
+    final l$tagName = tagName;
+    final lOther$tagName = other.tagName;
+    if (l$tagName != lOther$tagName) return false;
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) return false;
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) return false;
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetLastTag$repository$releases$edges$node
+    on Query$GetLastTag$repository$releases$edges$node {
+  Query$GetLastTag$repository$releases$edges$node copyWith(
+          {String? tagName, String? createdAt, String? $__typename}) =>
+      Query$GetLastTag$repository$releases$edges$node(
+          tagName: tagName == null ? this.tagName : tagName,
+          createdAt: createdAt == null ? this.createdAt : createdAt,
+          $__typename: $__typename == null ? this.$__typename : $__typename);
 }
