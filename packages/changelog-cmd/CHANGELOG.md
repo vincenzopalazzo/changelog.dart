@@ -1,3 +1,9 @@
+# v0.0.1
+
+## Added
+- add small entry when there are no changes ([commit](https://github.com/vincenzopalazzo/changelog.dart/commit/47b71f00251dc507ae7d61b8c229743defbb3534)). @vincenzopalazzo 13-07-2022
+
+
 # v0.0.1-beta.4
 
 ## Added
