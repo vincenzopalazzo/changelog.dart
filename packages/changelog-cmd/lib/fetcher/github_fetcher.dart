@@ -55,11 +55,15 @@ class GithubFetcher extends GenericFetcher {
     )));
 
     var rawLastTags = QueryGetLastTag.fromJson(lastTag).repository;
-    var lastRelease = cleanListOfTags(rawLastTags).first;
-    if (lastRelease == null) {
+    var releases = cleanListOfTags(rawLastTags);
+    if (releases.isEmpty) {
       return commits;
     }
 
+    var lastRelease = releases.first;
+    if (lastRelease == null) {
+      return commits;
+    }
     var listCommits = await _client!.query(
         query: GQLOptionsQueryGetLastCommits(
             variables: VariablesQueryGetLastCommits(
