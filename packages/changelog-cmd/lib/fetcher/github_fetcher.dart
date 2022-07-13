@@ -48,13 +48,13 @@ class GithubFetcher extends GenericFetcher {
 
     // TODO: what happens if there are no release?
     var lastTag = await _client!.query(
-        query: GQLOptionsQueryGetLastTag(
-            variables: VariablesQueryGetLastTag(
+        query: Options$Query$GetLastTag(
+            variables: Variables$Query$GetLastTag(
       owner: tokens[0],
       name: tokens[1],
     )));
 
-    var rawLastTags = QueryGetLastTag.fromJson(lastTag).repository;
+    var rawLastTags = Query$GetLastTag.fromJson(lastTag).repository;
     var releases = cleanListOfTags(rawLastTags);
     if (releases.isEmpty) {
       return commits;
@@ -65,15 +65,15 @@ class GithubFetcher extends GenericFetcher {
       return commits;
     }
     var listCommits = await _client!.query(
-        query: GQLOptionsQueryGetLastCommits(
-            variables: VariablesQueryGetLastCommits(
+        query: Options$Query$GetLastCommits(
+            variables: Variables$Query$GetLastCommits(
       owner: tokens[0],
       name: tokens[1],
       branch: fromBranch,
       since: lastRelease.node!.createdAt,
     )));
 
-    var rawCommits = QueryGetLastCommits.fromJson(listCommits).repository;
+    var rawCommits = Query$GetLastCommits.fromJson(listCommits).repository;
     var rawListCommit = cleanListOfCommit(rawCommits);
 
     for (var rawCommit in rawListCommit) {
@@ -92,21 +92,21 @@ class GithubFetcher extends GenericFetcher {
     return commits;
   }
 
-  List<QueryGetLastTag$repository$releases$edges?> cleanListOfTags(
-      QueryGetLastTag$repository? rawLastTags) {
+  List<Query$GetLastTag$repository$releases$edges?> cleanListOfTags(
+      Query$GetLastTag$repository? rawLastTags) {
     if (rawLastTags == null) {
       return [];
     }
     return rawLastTags.releases.edges ?? [];
   }
 
-  List<QueryGetLastCommits$repository$object$Commit$history$nodes?>
-      cleanListOfCommit(QueryGetLastCommits$repository? rawCommits) {
+  List<Query$GetLastCommits$repository$object$$Commit$history$nodes?>
+      cleanListOfCommit(Query$GetLastCommits$repository? rawCommits) {
     if (rawCommits == null) {
       return [];
     }
     var commits =
-        rawCommits.object as QueryGetLastCommits$repository$object$Commit;
+        rawCommits.object as Query$GetLastCommits$repository$object$$Commit;
     return commits.history.nodes ?? [];
   }
 }
