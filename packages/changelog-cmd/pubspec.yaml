@@ -11,8 +11,8 @@ dependencies:
   octokit: ^0.0.3
   gql: ^0.13.0
   changelog_lib: ^0.0.1-beta.3
-  json_annotation:
-  json_serializable: 
+  json_annotation: ^4.6.0
+  json_serializable: ^6.3.1
   graphql: ^5.1.1
   intl: ^0.17.0
 
