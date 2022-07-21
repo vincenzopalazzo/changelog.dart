@@ -88,9 +88,9 @@ packages:
   changelog_lib:
     dependency: "direct main"
     description:
-      name: changelog_lib
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../changelog-lib"
+      relative: true
+    source: path
     version: "0.0.1-beta.3"
   checked_yaml:
     dependency: transitive
