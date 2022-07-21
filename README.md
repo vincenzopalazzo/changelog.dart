@@ -47,7 +47,7 @@ To see how to use tha package, please see the package homepage.
 
 # How Contribute
 
-TODO
+Read our [Hacking guide](docs/dev/MAINTAINERS.mdx)
 
 ## License
 
