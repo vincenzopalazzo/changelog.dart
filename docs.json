@@ -1,7 +1,7 @@
 {
   "name": "changelog.dart",
-  "logo": "/docs/ic_launcher.png",
-  "logoDark": "/docs/ic_launcher.png",
+  "logo": "https://github.com/vincenzopalazzo/changelog.dart/raw/main/docs/ic_launcher.png",
+  "logoDark": "https://github.com/vincenzopalazzo/changelog.dart/raw/main/docs/ic_launcher.png",
   "twitter": "PalazzoVincenzo",
   "theme": "#FFA03F"
 }
