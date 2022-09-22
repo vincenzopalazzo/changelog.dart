@@ -1,6 +1,6 @@
 name: changelog_lib
 description: build your changelog extractor in a fashion way.
-version: 0.0.1-beta.3
+version: 0.0.1
 homepage: https://github.com/vincenzopalazzo/changelog.dart
 
 environment:
