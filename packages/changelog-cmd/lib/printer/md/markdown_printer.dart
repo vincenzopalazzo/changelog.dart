@@ -21,7 +21,7 @@ class MarkDownPrinter extends ChangelogPrinter {
         }
       }
     }
-    if (changelogInfo.sections.values.isEmpty) {
+    if (changelogContent.trim().isEmpty) {
       changelogContent += "No change to be aware!\n";
     }
     log(changelogContent);

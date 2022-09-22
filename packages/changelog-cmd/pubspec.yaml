@@ -1,6 +1,6 @@
 name: changelog_cmd
 description: Command-line application to manage in the correct way the git metadata to build the changelog.
-version: 0.0.1
+version: 0.0.1-beta.4
 homepage: https://github.com/vincenzopalazzo/changelog.dart/tree/main/packages/changelog-cmd
 
 environment:
