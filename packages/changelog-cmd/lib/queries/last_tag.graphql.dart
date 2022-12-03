@@ -124,7 +124,7 @@ const documentNodeQueryGetLastTag = DocumentNode(definitions: [
                   alias: null,
                   arguments: [
                     ArgumentNode(
-                        name: NameNode(value: 'last'),
+                        name: NameNode(value: 'first'),
                         value: IntValueNode(value: '1'))
                   ],
                   directives: [],
