@@ -1,3 +1,12 @@
+# v0.0.2
+
+## Fixed
+- fixes the graphql query to get the last tag ([commit](https://github.com/vincenzopalazzo/changelog.dart/commit/f8d2f553247be4affa65f402ca7b434213be023d)). @vincenzopalazzo 03-12-2022
+
+## Added
+- add small entry when there are no changes ([commit](https://github.com/vincenzopalazzo/changelog.dart/commit/47b71f00251dc507ae7d61b8c229743defbb3534)). @vincenzopalazzo 13-07-2022
+
+
 # v0.0.1
 
 ## Added
