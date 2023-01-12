@@ -1,10 +1,10 @@
 {
   "package_name": "changelog_cmd",
-  "version": "v0.0.2",
+  "version": "v0.0.3",
   "api": {
     "name": "github",
     "repository": "vincenzopalazzo/changelog.dart",
-    "branch": "main"
+    "branch": "macros/docs"
   },
   "generation_method": {
     "name": "semver-v2",
