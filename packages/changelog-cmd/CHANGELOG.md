@@ -1,3 +1,9 @@
+# v0.0.3
+
+## Fixed
+- dependeces versions ([commit](https://github.com/vincenzopalazzo/changelog.dart/commit/be915f1e6d6ccfc8583c36ed5c6e69569b3a2677)). @vincenzopalazzo 12-01-2023
+
+
 # v0.0.2
 
 ## Fixed
